@@ -11,51 +11,16 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react
 const PROJECTS = [
   {
     id: 1,
-    title: "The Glass Pavilion",
+    title: "Jackson Family Retreat Home",
     category: "Residential",
-    year: "2024",
+    year: "2025",
     images: [
-      "https://picsum.photos/seed/arch1/1200/800",
-      "https://picsum.photos/seed/arch1b/1200/800",
-      "https://picsum.photos/seed/arch1c/1200/800"
+      "/images/jackson-elevation.png",
+      "/images/jackson-longitudinal-section.png",
+      "/images/jackson-transverse-section.png",
+      "/images/jackson-diagram.png"
     ],
-    description: "A seamless integration of indoor and outdoor living in the heart of the Swiss Alps."
-  },
-  {
-    id: 2,
-    title: "Monolith Library",
-    category: "Public",
-    year: "2023",
-    images: [
-      "https://picsum.photos/seed/arch2/1200/800",
-      "https://picsum.photos/seed/arch2b/1200/800",
-      "https://picsum.photos/seed/arch2c/1200/800"
-    ],
-    description: "A brutalist-inspired sanctuary for knowledge, featuring dramatic light wells and raw concrete."
-  },
-  {
-    id: 3,
-    title: "Azure Heights",
-    category: "Commercial",
-    year: "2023",
-    images: [
-      "https://picsum.photos/seed/arch3/1200/800",
-      "https://picsum.photos/seed/arch3b/1200/800",
-      "https://picsum.photos/seed/arch3c/1200/800"
-    ],
-    description: "Redefining the skyline with a sustainable, vertical forest concept in Singapore."
-  },
-  {
-    id: 4,
-    title: "Desert Mirage",
-    category: "Hospitality",
-    year: "2022",
-    images: [
-      "https://picsum.photos/seed/arch4/1200/800",
-      "https://picsum.photos/seed/arch4b/1200/800",
-      "https://picsum.photos/seed/arch4c/1200/800"
-    ],
-    description: "An eco-resort that disappears into the dunes of the Sahara, utilizing passive cooling."
+    description: "A passive-design retreat nestled in a wooded landscape, harnessing solar orientation, natural cross-ventilation, and stack ventilation through warm timber construction."
   }
 ];
 
@@ -104,7 +69,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index % 2 * 0.2, duration: 0.8 }}
-      className={`group cursor-pointer ${index % 2 !== 0 ? 'md:mt-32' : ''}`}
+      className="group cursor-pointer max-w-4xl mx-auto w-full"
     >
       <div className="overflow-hidden mb-8 aspect-[4/5] relative bg-neutral-100">
         <AnimatePresence initial={false} custom={direction}>
@@ -191,20 +156,20 @@ function Resume() {
 
         <div className="print:block">
           <header className="border-b border-border pb-12 mb-12">
-            <h1 className="text-5xl md:text-7xl font-serif italic mb-4">Elias Thorne</h1>
-            <p className="text-xs uppercase tracking-[0.4em] text-muted">Principal Architect & Visionary</p>
+            <h1 className="text-5xl md:text-7xl font-serif italic mb-4">Kyle Delgado</h1>
+            <p className="text-xs uppercase tracking-[0.4em] text-muted">Fourth Year Architecture Student</p>
             <div className="mt-8 flex flex-wrap gap-x-12 gap-y-4 text-sm text-muted">
-              <span>Oslo, Norway</span>
-              <span>hello@aura.arch</span>
-              <span>+47 123 45 678</span>
-              <span>www.aura.arch</span>
+              <span>Manassas, VA</span>
+              <span>kyifc03@gmail.com</span>
+              <span>(703)-512-6829</span>
+              <span>www.kydeldesign.com</span>
             </div>
           </header>
 
           <section className="mb-16">
             <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Profile</h2>
             <p className="text-muted leading-relaxed text-lg">
-              Award-winning architect with a focus on sustainable, minimal, and emotive spaces. Expert in merging Scandinavian design principles with global architectural trends. Dedicated to creating environments that harmonize with nature and elevate the human experience.
+              Fourth Year Architecture Student with a minor in Construction Project Management. Experienced in managing project documentation and adept in utilizing design software. An effective team collaborator with strong analytical skills demonstrated through both volunteer and professional roles.
             </p>
           </section>
 
@@ -213,36 +178,28 @@ function Resume() {
             <div className="space-y-12">
               <div>
                 <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="text-xl font-serif italic">Aura Architecture Studio</h3>
-                  <span className="text-xs text-muted">2012 — Present</span>
+                  <h3 className="text-xl font-serif italic">Manhattan Construction Company</h3>
+                  <span className="text-xs text-muted">May 2022 — Aug 2022</span>
                 </div>
-                <p className="text-sm uppercase tracking-widest mb-4">Founder & Principal Architect</p>
+                <p className="text-sm uppercase tracking-widest mb-4">Project Intern · Arlington, VA</p>
                 <ul className="text-muted text-sm space-y-2 list-disc pl-4">
-                  <li>Lead design for over 50 residential and commercial projects across Europe.</li>
-                  <li>Pioneered sustainable "Vertical Forest" concepts in urban environments.</li>
-                  <li>Managed a team of 15 designers and engineers from concept to completion.</li>
+                  <li>Assisted in the creation of RFI's and Submittals.</li>
+                  <li>Annotation and interpretation of Civil, Structural, and Mechanical drawings.</li>
+                  <li>Revisions of Material and Purchasing Expedited Logs.</li>
+                  <li>Created Factory and Field-Testing logs to monitor lead times as well as the quality of all materials and equipment.</li>
+                  <li>Conducted Field Inspections and documented reports to ensure compliance with project specifications.</li>
                 </ul>
               </div>
               <div>
                 <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="text-xl font-serif italic">Kengo Kuma & Associates</h3>
-                  <span className="text-xs text-muted">2008 — 2012</span>
+                  <h3 className="text-xl font-serif italic">Holy Family Catholic Church</h3>
+                  <span className="text-xs text-muted">Nov 2018 — Apr 2019</span>
                 </div>
-                <p className="text-sm uppercase tracking-widest mb-4">Senior Architect (Tokyo, Japan)</p>
+                <p className="text-sm uppercase tracking-widest mb-4">Church Volunteer · Dale City, VA</p>
                 <ul className="text-muted text-sm space-y-2 list-disc pl-4">
-                  <li>Contributed to major public projects focusing on wood and natural materials.</li>
-                  <li>Specialized in light-shadow choreography for cultural institutions.</li>
-                </ul>
-              </div>
-              <div>
-                <div className="flex justify-between items-baseline mb-2">
-                  <h3 className="text-xl font-serif italic">BIG - Bjarke Ingels Group</h3>
-                  <span className="text-xs text-muted">2005 — 2008</span>
-                </div>
-                <p className="text-sm uppercase tracking-widest mb-4">Architect (Copenhagen, Denmark)</p>
-                <ul className="text-muted text-sm space-y-2 list-disc pl-4">
-                  <li>Worked on large-scale urban planning and residential developments.</li>
-                  <li>Developed innovative 3D modeling and visualization techniques.</li>
+                  <li>Assisted in implementing ideas for holiday youth events.</li>
+                  <li>Demonstrated and educated new volunteers about church procedures, values and objectives for church events.</li>
+                  <li>Planned and organized a reception for church meetings.</li>
                 </ul>
               </div>
             </div>
@@ -253,8 +210,8 @@ function Resume() {
               <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Education</h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-serif italic">ETH Zurich</h3>
-                  <p className="text-xs text-muted uppercase tracking-widest">Master of Architecture</p>
+                  <h3 className="text-lg font-serif italic">University of Maryland</h3>
+                  <p className="text-xs text-muted uppercase tracking-widest">Bachelor of Architecture</p>
                 </div>
                 <div>
                   <h3 className="text-lg font-serif italic">Oslo School of Architecture</h3>
@@ -265,7 +222,7 @@ function Resume() {
             <section>
               <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Skills</h2>
               <div className="flex flex-wrap gap-2">
-                {["Sustainable Design", "Urban Planning", "BIM", "Rhino 3D", "Revit", "Project Management", "Material Innovation", "Light Choreography"].map(skill => (
+                {["Sketchup", "AutoCAD", "BIM", "Rhino 3D", "Revit", "Project Management", "Sefaira", "Climate Consultant", "Procore"].map(skill => (
                   <span key={skill} className="text-[10px] uppercase tracking-widest border border-border px-3 py-1 rounded-full">
                     {skill}
                   </span>
@@ -292,7 +249,7 @@ function LandingPage() {
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-serif tracking-widest uppercase"
         >
-          <Link to="/">Aura</Link>
+          <Link to="/">kydeldesign</Link>
         </motion.div>
         
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
@@ -326,43 +283,57 @@ function LandingPage() {
 
       {/* Hero Section */}
       <section className="h-screen relative flex items-center justify-center overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070" 
-            alt="Architecture Hero"
-            className="w-full h-full object-cover brightness-75"
-            referrerPolicy="no-referrer"
+          <img
+            src="/images/jackson-elevation.png"
+            alt="Jackson Family Retreat Home"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 60%" }}
           />
         </motion.div>
-        
+
+        {/* Gradient overlay — dark at bottom, transparent at top */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
         <div className="relative z-10 text-center text-white px-6">
-          <motion.h1 
+          <motion.h1
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-6xl md:text-9xl font-serif mb-6 italic"
+            style={{ textShadow: "0 2px 24px rgba(0,0,0,0.4)" }}
           >
-            Sculpting Space
+            Jackson Retreat
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="text-sm md:text-base uppercase tracking-[0.4em] font-light"
+            className="text-sm md:text-base uppercase tracking-[0.4em] font-light mb-10"
+            style={{ textShadow: "0 1px 12px rgba(0,0,0,0.5)" }}
           >
-            Architecture for the Modern Soul
+            Passive Design · Timber · Residential
           </motion.p>
+          <motion.a
+            href="#work"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.8 }}
+            className="inline-flex items-center gap-3 border border-white/60 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+          >
+            View Project <ArrowRight size={14} />
+          </motion.a>
         </div>
 
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white opacity-50"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white opacity-80"
         >
           <div className="w-[1px] h-16 bg-white mx-auto" />
         </motion.div>
@@ -395,14 +366,13 @@ function LandingPage() {
             transition={{ duration: 1 }}
             className="relative aspect-[3/4] md:aspect-square"
           >
-            <img 
-              src="https://images.unsplash.com/photo-1518005020480-388a24563e66?auto=format&fit=crop&q=80&w=1000" 
-              alt="Architectural Detail"
+            <img
+              src="/images/jackson-diagram.png"
+              alt="Jackson Family Retreat — Passive Design Diagram"
               className="w-full h-full object-cover rounded-2xl"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-ink text-bg flex items-center justify-center rounded-full p-8 text-center text-xs uppercase tracking-widest leading-tight hidden md:flex">
-              Est. 2012 <br /> Oslo, Norway
+              Est. 2026 <br /> College Park, MD
             </div>
           </motion.div>
         </div>
@@ -418,16 +388,15 @@ function LandingPage() {
               viewport={{ once: true }}
               className="lg:col-span-5"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000" 
+              <div className="relative aspect-square overflow-hidden w-96 h-96 mx-auto lg:mx-0">
+                <img
+                  src="/images/profile.jpg"
                   alt="Lead Architect"
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="mt-8">
-                <h3 className="text-2xl font-serif italic">Elias Thorne</h3>
+                <h3 className="text-2xl font-serif italic">Kyle Delgado</h3>
                 <p className="text-xs uppercase tracking-widest text-muted mt-2">Founder & Principal Architect</p>
               </div>
             </motion.div>
@@ -445,10 +414,10 @@ function LandingPage() {
               </h2>
               <div className="space-y-6 text-muted leading-relaxed text-lg">
                 <p>
-                  With over 15 years of experience across Europe and Asia, Elias Thorne has developed a signature style that merges Scandinavian minimalism with organic fluidity. His work has been recognized for its sensitive use of natural materials and innovative light integration.
+                  With over 15 years of experience across Europe and Asia, Kyle Delgado has developed a signature style that merges Scandinavian minimalism with organic fluidity. His work has been recognized for its sensitive use of natural materials and innovative light integration.
                 </p>
                 <p>
-                  Before founding Aura, Elias spent a decade at renowned firms in Copenhagen and Tokyo, where he honed his belief that the best buildings are those that grow out of their environment rather than being imposed upon it.
+                  Before founding Aura, Kyle spent a decade at renowned firms in Copenhagen and Tokyo, where he honed his belief that the best buildings are those that grow out of their environment rather than being imposed upon it.
                 </p>
               </div>
 
@@ -464,8 +433,8 @@ function LandingPage() {
                 <div>
                   <h4 className="text-xs uppercase tracking-widest font-semibold mb-4">Education</h4>
                   <ul className="text-sm space-y-2 text-muted">
-                    <li>MA Architecture, ETH Zurich</li>
-                    <li>BA Design, Oslo School of Arch</li>
+                    <li>BA Architecture, University of Maryland</li>
+                    <li>Minor Construction Project Management, University of Maryland</li>
                   </ul>
                 </div>
               </div>
@@ -483,11 +452,11 @@ function LandingPage() {
               <h2 className="text-5xl md:text-7xl font-serif italic">Portfolio</h2>
             </div>
             <div className="hidden md:block text-right">
-              <p className="text-xs uppercase tracking-widest text-muted">01 — 04</p>
+              <p className="text-xs uppercase tracking-widest text-muted">01 — 01</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-32">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-32">
             {PROJECTS.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
@@ -558,7 +527,7 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="py-12 px-6 md:px-24 border-t border-border flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] text-muted">
-        <div>© 2026 Aura Architecture Studio</div>
+        <div>© 2026 kydeldesign</div>
         <div className="flex gap-12">
           <Link to="/resume" className="hover:text-ink transition-colors">Resume</Link>
           <a href="#" className="hover:text-ink transition-colors">Privacy Policy</a>
