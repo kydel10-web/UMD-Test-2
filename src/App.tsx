@@ -290,8 +290,8 @@ function LandingPage() {
           className="absolute inset-0"
         >
           <img
-            src="/images/jackson-elevation.png"
-            alt="Jackson Family Retreat Home"
+            src="/images/hero-sketch.png"
+            alt="Architecture Sketch"
             className="w-full h-full object-cover"
             style={{ objectPosition: "center 60%" }}
           />
