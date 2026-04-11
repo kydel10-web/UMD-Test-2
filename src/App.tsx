@@ -16,6 +16,8 @@ const PROJECTS = [
     year: "2025",
     images: [
       "/images/jackson-elevation.png",
+      "/images/jackson-balcony.jpg",
+      "/images/jackson-interior.jpg",
       "/images/jackson-longitudinal-section.png",
       "/images/jackson-transverse-section.png",
       "/images/jackson-diagram.png"
@@ -452,7 +454,7 @@ function LandingPage() {
               <h2 className="text-5xl md:text-7xl font-serif italic">Portfolio</h2>
             </div>
             <div className="hidden md:block text-right">
-              <p className="text-xs uppercase tracking-widest text-muted">01 — 01</p>
+              <p className="text-xs uppercase tracking-widest text-muted">01 — 06</p>
             </div>
           </div>
 
