@@ -331,7 +331,7 @@ function LandingPage() {
             className="text-sm md:text-base uppercase tracking-[0.4em] font-light mb-10"
             style={{ textShadow: "0 1px 12px rgba(0,0,0,0.5)" }}
           >
-            Passive Design · Timber · Residential
+            Furniture Design · Residential
           </motion.p>
           <motion.a
             href="#work"
