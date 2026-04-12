@@ -4,23 +4,37 @@
  */
 
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { ArrowRight, Instagram, Linkedin, Mail, Menu, X, ChevronLeft, ChevronRight, Download, ArrowLeft } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, Phone, Menu, X, ChevronLeft, ChevronRight, Download, ArrowLeft } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 const PROJECTS = [
   {
     id: 1,
+    title: "Mondrian Object",
+    category: "Object Design",
+    year: "Spring 2024",
+    images: [
+      "/images/mondrian-painting.png",
+      "/images/mondrian-axon.png",
+      "/images/mondrian-exploded-axon.png",
+      "/images/mondrian-hierarchy-diagram.png",
+      "/images/mondrian-part-mass.png",
+      "/images/mondrian-technical.png"
+    ],
+    description: "An object design study inspired by Piet Mondrian's compositional principles, translating two-dimensional painting into three-dimensional form through hierarchy and massing."
+  },
+  {
+    id: 2,
     title: "Jackson Family Retreat Home",
     category: "Residential",
-    year: "2025",
+    year: "Fall 2025",
     images: [
       "/images/jackson-elevation.png",
-      "/images/jackson-longitudinal-section.png",
       "/images/jackson-transverse-section.png",
       "/images/jackson-diagram.png"
     ],
-    description: "A passive-design retreat nestled in a wooded landscape, harnessing solar orientation, natural cross-ventilation, and stack ventilation through warm timber construction."
+    description: "The Jackson Family Retreat Home is located in Big Sur California and designed by Fougeron Architecture in 2005. The California household consists of a series of connected volumes that balance open and secluded spaces through transparency and material variation. The home is composed of three volumes being the perpendicular wing with the bedroom spaces and living room space, the front copper screen wall, and the vertical circulation defined by concrete walls. The front copper linear form runs parallel to the Canyon and serves as the building's datum used to ground the composition while highlighting the relationship of the masses."
   }
 ];
 
@@ -69,9 +83,13 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index % 2 * 0.2, duration: 0.8 }}
-      className="group cursor-pointer max-w-4xl mx-auto w-full"
+      className="group cursor-pointer w-full"
     >
-      <div className="overflow-hidden mb-8 aspect-[4/5] relative bg-neutral-100">
+      <div className="mb-8">
+          <h3 className="text-2xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
+          <p className="text-muted text-sm">{project.description}</p>
+      </div>
+      <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100">
         <AnimatePresence initial={false} custom={direction}>
           <motion.img 
             key={currentImageIndex}
@@ -86,7 +104,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             }}
             src={project.images[currentImageIndex]} 
             alt={project.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
             referrerPolicy="no-referrer"
           />
         </AnimatePresence>
@@ -123,11 +141,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           {project.category}
         </div>
       </div>
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="text-2xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
-          <p className="text-muted text-sm max-w-xs line-clamp-2">{project.description}</p>
-        </div>
+      <div className="flex justify-end">
         <span className="font-serif italic text-muted">{project.year}</span>
       </div>
     </motion.div>
@@ -214,8 +228,8 @@ function Resume() {
                   <p className="text-xs text-muted uppercase tracking-widest">Bachelor of Architecture</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-serif italic">Oslo School of Architecture</h3>
-                  <p className="text-xs text-muted uppercase tracking-widest">Bachelor of Design</p>
+                  <h3 className="text-lg font-serif italic">University of Maryland</h3>
+                  <p className="text-xs text-muted uppercase tracking-widest">Minor in Construction Project Management</p>
                 </div>
               </div>
             </section>
@@ -339,47 +353,8 @@ function LandingPage() {
         </motion.div>
       </section>
 
-      {/* Intro Section */}
-      <section id="about" className="py-32 px-6 md:px-24 bg-bg">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-tight">
-              We believe architecture is the <span className="italic">silent language</span> of human experience.
-            </h2>
-            <p className="text-muted leading-relaxed max-w-md text-lg">
-              Aura is a boutique architectural studio based in Oslo, dedicated to creating spaces that harmonize with nature and elevate the human spirit. Our approach is minimal, yet deeply emotive.
-            </p>
-            <button className="mt-12 group flex items-center gap-4 text-xs uppercase tracking-widest font-medium">
-              Our Philosophy <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-            </button>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="relative aspect-[3/4] md:aspect-square"
-          >
-            <img
-              src="/images/jackson-diagram.png"
-              alt="Jackson Family Retreat — Passive Design Diagram"
-              className="w-full h-full object-cover rounded-2xl"
-            />
-            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-ink text-bg flex items-center justify-center rounded-full p-8 text-center text-xs uppercase tracking-widest leading-tight hidden md:flex">
-              Est. 2026 <br /> College Park, MD
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* About Me Section */}
-      <section className="py-32 px-6 md:px-24 bg-white border-y border-border">
+      <section id="about" className="py-32 px-6 md:px-24 bg-white border-y border-border">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <motion.div 
@@ -396,8 +371,7 @@ function LandingPage() {
                 />
               </div>
               <div className="mt-8">
-                <h3 className="text-2xl font-serif italic">Kyle Delgado</h3>
-                <p className="text-xs uppercase tracking-widest text-muted mt-2">Founder & Principal Architect</p>
+                <h3 className="text-4xl font-serif italic">Kyle Delgado</h3>
               </div>
             </motion.div>
 
@@ -408,16 +382,12 @@ function LandingPage() {
               transition={{ delay: 0.2 }}
               className="lg:col-span-7 lg:pl-12"
             >
-              <span className="text-[10px] uppercase tracking-[0.4em] text-muted mb-6 block">The Visionary</span>
-              <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
-                "Architecture is not just about building; it's about <span className="italic">choreographing light</span> and shadow."
-              </h2>
               <div className="space-y-6 text-muted leading-relaxed text-lg">
                 <p>
-                  With over 15 years of experience across Europe and Asia, Kyle Delgado has developed a signature style that merges Scandinavian minimalism with organic fluidity. His work has been recognized for its sensitive use of natural materials and innovative light integration.
+                  I am an emerging architect who designs with purpose and structure. My work explores how geometry, material, and light can shape meaningful experiences. I believe architecture should be intentional, where every line, proportion, and decision is grounded in logic and clarity.
                 </p>
                 <p>
-                  Before founding Aura, Kyle spent a decade at renowned firms in Copenhagen and Tokyo, where he honed his belief that the best buildings are those that grow out of their environment rather than being imposed upon it.
+                  I value intentional, innovative, and high-performance design. My approach blends conceptual exploration with digital fabrication to translate ideas into building systems that are both expressive and pragmatic. I intend on becoming a Licensed Architect in Washington D.C., Maryland, and Virginia and obtain my LEED Green Associate and LEED BD+C certifications to design buildings that are efficient and environmentally impactful.
                 </p>
               </div>
 
@@ -451,9 +421,6 @@ function LandingPage() {
               <span className="text-xs uppercase tracking-[0.3em] text-muted mb-4 block">Selected Works</span>
               <h2 className="text-5xl md:text-7xl font-serif italic">Portfolio</h2>
             </div>
-            <div className="hidden md:block text-right">
-              <p className="text-xs uppercase tracking-widest text-muted">01 — 04</p>
-            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-x-12 gap-y-32">
@@ -468,14 +435,13 @@ function LandingPage() {
       <section className="py-32 px-6 md:px-24 bg-ink text-bg overflow-hidden relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <h2 className="text-4xl font-serif mb-12 sticky top-32">Our <br /> Expertise</h2>
+            <h2 className="text-4xl font-serif mb-12 sticky top-32">My <br /> Expertise</h2>
           </div>
           <div className="md:col-span-8 space-y-24">
             {[
-              { title: "Residential Design", desc: "Crafting intimate sanctuaries that reflect the unique rhythms of domestic life." },
-              { title: "Urban Planning", desc: "Designing sustainable cityscapes that foster community and connectivity." },
-              { title: "Interior Architecture", desc: "Curating the tactile experience of space through material and light." },
-              { title: "Sustainable Innovation", desc: "Pushing the boundaries of eco-conscious construction and passive design." }
+              { title: "Object Design", desc: "Crafting intimate sanctuaries that reflect the unique rhythms of domestic life." },
+              { title: "Residential Design", desc: "Designing sustainable cityscapes that foster community and connectivity." },
+              { title: "Parametric Design", desc: "Curating the tactile experience of space through material and light." }
             ].map((service, i) => (
               <motion.div 
                 key={i}
@@ -504,20 +470,36 @@ function LandingPage() {
             <span className="text-xs uppercase tracking-[0.4em] text-muted mb-8 block">Start a Conversation</span>
             <h2 className="text-5xl md:text-8xl font-serif mb-16 italic">Let's build <br /> something timeless.</h2>
             
+            {/* Map */}
+            <div className="relative w-full max-w-3xl mx-auto mb-16 rounded-2xl overflow-hidden" style={{ height: "320px" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49805.08!2d-77.50788!3d38.75087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6497c2316ea01%3A0x2f6e34fc4e73a25e!2sManassas%2C%20VA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                className="w-full h-full border-0"
+                title="Manassas VA Map"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
             <div className="flex flex-col md:flex-row justify-center gap-12 md:gap-24 items-center">
-              <a href="mailto:hello@aura.arch" className="group">
+              <a href="mailto:kyifc03@gmail.com" className="group">
                 <div className="text-xs uppercase tracking-widest text-muted mb-2">Email</div>
-                <div className="text-xl md:text-2xl font-serif border-b border-transparent group-hover:border-ink transition-all">hello@aura.arch</div>
+                <div className="text-xl md:text-2xl font-serif border-b border-transparent group-hover:border-ink transition-all">kyifc03@gmail.com</div>
               </a>
               <div className="group">
                 <div className="text-xs uppercase tracking-widest text-muted mb-2">Location</div>
-                <div className="text-xl md:text-2xl font-serif">Oslo, Norway</div>
+                <div className="text-xl md:text-2xl font-serif">Manassas, VA</div>
               </div>
               <div className="group">
                 <div className="text-xs uppercase tracking-widest text-muted mb-2">Social</div>
                 <div className="flex gap-6 justify-center">
-                  <Instagram size={20} className="hover:opacity-50 cursor-pointer transition-opacity" />
-                  <Linkedin size={20} className="hover:opacity-50 cursor-pointer transition-opacity" />
+<a href="https://www.linkedin.com/in/kyle-delgado-5614b5302" target="_blank" rel="noopener noreferrer">
+                    <Linkedin size={20} className="hover:opacity-50 cursor-pointer transition-opacity" />
+                  </a>
+                  <a href="tel:+17035126829">
+                    <Phone size={20} className="hover:opacity-50 cursor-pointer transition-opacity" />
+                  </a>
                 </div>
               </div>
             </div>
