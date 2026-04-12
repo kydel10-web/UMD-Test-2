@@ -22,7 +22,7 @@ const PROJECTS = [
       "/images/mondrian-part-mass.png",
       "/images/mondrian-technical.png"
     ],
-    description: "An object design study inspired by Piet Mondrian's compositional principles, translating two-dimensional painting into three-dimensional form through hierarchy and massing."
+    description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking."
   },
   {
     id: 2,
