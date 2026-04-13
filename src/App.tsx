@@ -523,7 +523,7 @@ function LandingPage() {
             className="text-6xl md:text-9xl font-serif mb-6 italic"
             style={{ textShadow: "0 2px 24px rgba(0,0,0,0.4)" }}
           >
-            Design.Build.Evolve
+            Design. Build. Evolve.
           </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
