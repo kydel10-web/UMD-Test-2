@@ -21,7 +21,7 @@ const PROJECTS = [
       "/images/mondrian-hierarchy-diagram.png",
       "/images/mondrian-technical.png"
     ],
-    imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy", "TBD"],
+    imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy Diagram", "Plans"],
     description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking.",
     specs: [
       { label: "Location", value: "College Park, MD" },
@@ -208,7 +208,6 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
     >
       <div className="mb-8">
           <h3 className="text-2xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
-          <p className="text-muted text-sm">{project.description}</p>
       </div>
       <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100">
         <AnimatePresence initial={false} custom={direction}>
