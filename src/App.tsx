@@ -226,17 +226,19 @@ function Resume() {
                 <div>
                   <h3 className="text-lg font-serif italic">University of Maryland</h3>
                   <p className="text-xs text-muted uppercase tracking-widest">Bachelor of Architecture</p>
+                  <p className="text-xs text-muted mt-1">GPA 3.52</p>
                 </div>
                 <div>
                   <h3 className="text-lg font-serif italic">University of Maryland</h3>
                   <p className="text-xs text-muted uppercase tracking-widest">Minor in Construction Project Management</p>
+                  <p className="text-xs text-muted mt-1">GPA 3.43</p>
                 </div>
               </div>
             </section>
             <section>
               <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Skills</h2>
               <div className="flex flex-wrap gap-2">
-                {["Sketchup", "AutoCAD", "BIM", "Rhino 3D", "Revit", "Project Management", "Sefaira", "Climate Consultant", "Procore"].map(skill => (
+                {["Sketchup", "AutoCAD", "BIM", "Rhino 3D", "Revit", "Project Management", "Sefaira", "Climate Consultant", "Procore", "Primavera P6"].map(skill => (
                   <span key={skill} className="text-[10px] uppercase tracking-widest border border-border px-3 py-1 rounded-full">
                     {skill}
                   </span>
@@ -244,6 +246,35 @@ function Resume() {
               </div>
             </section>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Explorations() {
+  const placeholders = Array.from({ length: 9 });
+
+  return (
+    <div className="min-h-screen bg-white py-24 px-6 md:px-24">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center mb-16">
+          <Link to="/" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:opacity-50 transition-opacity">
+            <ArrowLeft size={16} /> Back to Portfolio
+          </Link>
+        </div>
+
+        <div className="mb-16">
+          <span className="text-xs uppercase tracking-[0.3em] text-muted mb-4 block">Selected Works</span>
+          <h1 className="text-5xl md:text-7xl font-serif italic">Explorations</h1>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {placeholders.map((_, i) => (
+            <div key={i} className="aspect-[4/3] bg-neutral-100 rounded-lg flex items-center justify-center">
+              <span className="text-xs uppercase tracking-widest text-muted">Image {i + 1}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -269,6 +300,7 @@ function LandingPage() {
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
           <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
           <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
+          <Link to="/explorations" className="hover:opacity-50 transition-opacity">Explorations</Link>
           <Link to="/resume" className="hover:opacity-50 transition-opacity">Resume</Link>
           <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
         </div>
@@ -290,6 +322,7 @@ function LandingPage() {
         >
           <a href="#work" onClick={() => setIsMenuOpen(false)}>Work</a>
           <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+          <Link to="/explorations" onClick={() => setIsMenuOpen(false)}>Explorations</Link>
           <Link to="/resume" onClick={() => setIsMenuOpen(false)}>Resume</Link>
           <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </motion.div>
@@ -363,11 +396,11 @@ function LandingPage() {
               viewport={{ once: true }}
               className="lg:col-span-5"
             >
-              <div className="relative aspect-square overflow-hidden w-96 h-96 mx-auto lg:mx-0">
+              <div className="relative overflow-hidden w-96 mx-auto lg:mx-0">
                 <img
                   src="/images/profile.jpg"
                   alt="Lead Architect"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <div className="mt-8">
@@ -519,6 +552,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/explorations" element={<Explorations />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
     </Router>
