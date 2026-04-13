@@ -32,6 +32,29 @@ const PROJECTS = [
   },
   {
     id: 2,
+    title: "Spinora Lamp Design",
+    category: "Product Design",
+    year: "TBD",
+    images: [
+      "/images/spinora-sketches.png",
+      "/images/spinora-grasshopper.png",
+      "/images/spinora-top-view.png",
+      "/images/spinora-view-2.png",
+      "/images/spinora-view-4.png",
+      "/images/spinora-view-5.png",
+      "/images/spinora-view-7.png",
+      "/images/spinora-view-9.png"
+    ],
+    description: "TBD",
+    specs: [
+      { label: "Location", value: "TBD" },
+      { label: "Type", value: "TBD" },
+      { label: "Materials", value: "TBD" },
+      { label: "Year", value: "TBD" }
+    ]
+  },
+  {
+    id: 3,
     title: "Jackson Family Retreat Home",
     category: "Residential",
     year: "Fall 2025",
@@ -207,7 +230,7 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
       onClick={() => onOpen(project)}
     >
       <div className="mb-8">
-          <h3 className="text-2xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
+          <h3 className="text-4xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
       </div>
       <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100">
         <AnimatePresence initial={false} custom={direction}>
@@ -574,7 +597,7 @@ function LandingPage() {
                   <h4 className="text-xs uppercase tracking-widest font-semibold mb-4">Education</h4>
                   <ul className="text-sm space-y-2 text-muted">
                     <li>Bachelor of Architecture, University of Maryland</li>
-                    <li>Minor Construction Project Management, University of Maryland</li>
+                    <li>Construction Project Management Minor, University of Maryland</li>
                   </ul>
                 </div>
               </div>
