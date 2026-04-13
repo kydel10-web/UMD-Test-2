@@ -419,6 +419,9 @@ function Sketches() {
           <div className="bg-neutral-100 rounded-lg overflow-hidden">
             <img src="/images/spinora-sketches.png" alt="Spinora Lamp Sketches" className="w-full h-auto object-contain" />
           </div>
+          <div className="bg-neutral-100 rounded-lg overflow-hidden">
+            <img src="/images/sketch-microscope.png" alt="Microscope Still Life" className="w-full h-auto object-contain" />
+          </div>
         </div>
       </div>
     </div>
