@@ -19,16 +19,16 @@ const PROJECTS = [
       "/images/mondrian-axon.png",
       "/images/mondrian-exploded-axon.png",
       "/images/mondrian-hierarchy-diagram.png",
-      "/images/mondrian-part-mass.png",
       "/images/mondrian-technical.png"
     ],
+    imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy", "TBD"],
     description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking.",
-    specs: {
-      location: "College Park, MD",
-      area: "TBD",
-      materials: "TBD",
-      year: "Spring 2024"
-    }
+    specs: [
+      { label: "Location", value: "College Park, MD" },
+      { label: "Type", value: "Painting" },
+      { label: "Materials", value: "TBD" },
+      { label: "Year", value: "Spring 2024" }
+    ]
   },
   {
     id: 2,
@@ -38,15 +38,16 @@ const PROJECTS = [
     images: [
       "/images/jackson-elevation.png",
       "/images/jackson-transverse-section.png",
-      "/images/jackson-diagram.png"
+      "/images/jackson-diagram.png",
+      "/images/mondrian-part-mass.png"
     ],
     description: "The Jackson Family Retreat Home is located in Big Sur California and designed by Fougeron Architecture in 2005. The California household consists of a series of connected volumes that balance open and secluded spaces through transparency and material variation. The home is composed of three volumes being the perpendicular wing with the bedroom spaces and living room space, the front copper screen wall, and the vertical circulation defined by concrete walls. The front copper linear form runs parallel to the Canyon and serves as the building's datum used to ground the composition while highlighting the relationship of the masses.",
-    specs: {
-      location: "Big Sur, CA",
-      area: "TBD",
-      materials: "TBD",
-      year: "Fall 2025"
-    }
+    specs: [
+      { label: "Location", value: "Big Sur, CA" },
+      { label: "Area", value: "TBD" },
+      { label: "Materials", value: "TBD" },
+      { label: "Year", value: "Fall 2025" }
+    ]
   }
 ];
 
@@ -137,17 +138,17 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <div>
             <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Specifications</h3>
             <div className="space-y-4">
-              {[
-                { label: "Location", value: project.specs.location },
-                { label: "Area", value: project.specs.area },
-                { label: "Materials", value: project.specs.materials },
-                { label: "Year", value: project.specs.year }
-              ].map(({ label, value }) => (
-                <div key={label} className="border-b border-border pb-4">
-                  <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
-                  <p className="text-sm font-medium">{value}</p>
-                </div>
-              ))}
+              {project.specs.map(({ label, value }) => {
+                const displayValue = label === "Type" && project.imageTypes
+                  ? project.imageTypes[currentImageIndex] ?? value
+                  : value;
+                return (
+                  <div key={label} className="border-b border-border pb-4">
+                    <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
+                    <p className="text-sm font-medium">{displayValue}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
