@@ -36,12 +36,12 @@ const PROJECTS = [
     category: "Product Design",
     year: "TBD",
     images: [
+      "/images/spinora-view-7.png",
       "/images/spinora-grasshopper.png",
       "/images/spinora-top-view.png",
       "/images/spinora-view-2.png",
       "/images/spinora-view-4.png",
       "/images/spinora-view-5.png",
-      "/images/spinora-view-7.png",
       "/images/spinora-view-9.png"
     ],
     description: "TBD",
