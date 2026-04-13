@@ -36,7 +36,6 @@ const PROJECTS = [
     category: "Product Design",
     year: "TBD",
     images: [
-      "/images/spinora-sketches.png",
       "/images/spinora-grasshopper.png",
       "/images/spinora-top-view.png",
       "/images/spinora-view-2.png",
@@ -415,6 +414,9 @@ function Sketches() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-neutral-100 rounded-lg overflow-hidden">
             <img src="/images/sketch-weight-of-things.png" alt="Weight of Things Still Life" className="w-full h-auto object-contain" />
+          </div>
+          <div className="bg-neutral-100 rounded-lg overflow-hidden">
+            <img src="/images/spinora-sketches.png" alt="Spinora Lamp Sketches" className="w-full h-auto object-contain" />
           </div>
         </div>
       </div>
