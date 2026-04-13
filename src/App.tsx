@@ -22,7 +22,13 @@ const PROJECTS = [
       "/images/mondrian-part-mass.png",
       "/images/mondrian-technical.png"
     ],
-    description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking."
+    description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking.",
+    specs: {
+      location: "College Park, MD",
+      area: "TBD",
+      materials: "TBD",
+      year: "Spring 2024"
+    }
   },
   {
     id: 2,
@@ -34,17 +40,130 @@ const PROJECTS = [
       "/images/jackson-transverse-section.png",
       "/images/jackson-diagram.png"
     ],
-    description: "The Jackson Family Retreat Home is located in Big Sur California and designed by Fougeron Architecture in 2005. The California household consists of a series of connected volumes that balance open and secluded spaces through transparency and material variation. The home is composed of three volumes being the perpendicular wing with the bedroom spaces and living room space, the front copper screen wall, and the vertical circulation defined by concrete walls. The front copper linear form runs parallel to the Canyon and serves as the building's datum used to ground the composition while highlighting the relationship of the masses."
+    description: "The Jackson Family Retreat Home is located in Big Sur California and designed by Fougeron Architecture in 2005. The California household consists of a series of connected volumes that balance open and secluded spaces through transparency and material variation. The home is composed of three volumes being the perpendicular wing with the bedroom spaces and living room space, the front copper screen wall, and the vertical circulation defined by concrete walls. The front copper linear form runs parallel to the Canyon and serves as the building's datum used to ground the composition while highlighting the relationship of the masses.",
+    specs: {
+      location: "Big Sur, CA",
+      area: "TBD",
+      materials: "TBD",
+      year: "Fall 2025"
+    }
   }
 ];
+
+type Project = typeof PROJECTS[0];
+
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const variants = {
+    enter: (direction: number) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
+    center: { zIndex: 1, x: 0, opacity: 1 },
+    exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 300 : -300, opacity: 0 })
+  };
+
+  const nextImage = () => { setDirection(1); setCurrentImageIndex((prev) => (prev + 1) % project.images.length); };
+  const prevImage = () => { setDirection(-1); setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length); };
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 40 }}
+        transition={{ duration: 0.4 }}
+        className="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex justify-between items-start p-8 border-b border-border">
+          <div>
+            <span className="text-[10px] uppercase tracking-widest text-muted mb-2 block">{project.category}</span>
+            <h2 className="text-3xl font-serif">{project.title}</h2>
+          </div>
+          <button onClick={onClose} className="p-2 hover:opacity-50 transition-opacity">
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Image Carousel */}
+        <div className="relative aspect-[16/9] bg-neutral-100 overflow-hidden">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.img
+              key={currentImageIndex}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+              src={project.images[currentImageIndex]}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+          </AnimatePresence>
+          <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
+            <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
+              <ChevronLeft size={20} />
+            </button>
+            <button onClick={nextImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
+              <ChevronRight size={20} />
+            </button>
+          </div>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {project.images.map((_, i) => (
+              <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-white w-4" : "bg-white/40 w-1.5"}`} />
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="md:col-span-2">
+            <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Description</h3>
+            <p className="text-muted leading-relaxed">{project.description}</p>
+          </div>
+          <div>
+            <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Specifications</h3>
+            <div className="space-y-4">
+              {[
+                { label: "Location", value: project.specs.location },
+                { label: "Area", value: project.specs.area },
+                { label: "Materials", value: project.specs.materials },
+                { label: "Year", value: project.specs.year }
+              ].map(({ label, value }) => (
+                <div key={label} className="border-b border-border pb-4">
+                  <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
+                  <p className="text-sm font-medium">{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 interface ProjectCardProps {
   project: typeof PROJECTS[0];
   index: number;
+  onOpen: (project: typeof PROJECTS[0]) => void;
   key?: React.Key;
 }
 
-function ProjectCard({ project, index }: ProjectCardProps) {
+function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -84,6 +203,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ delay: index % 2 * 0.2, duration: 0.8 }}
       className="group cursor-pointer w-full"
+      onClick={() => onOpen(project)}
     >
       <div className="mb-8">
           <h3 className="text-2xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
@@ -281,6 +401,33 @@ function Sketches() {
   );
 }
 
+function ProjectsGrid() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      <div className="flex justify-between items-end mb-24">
+        <div>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted mb-4 block">Selected Works</span>
+          <h2 className="text-5xl md:text-7xl font-serif italic">Portfolio</h2>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 gap-x-12 gap-y-32">
+        {PROJECTS.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} onOpen={setSelectedProject} />
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef(null);
@@ -440,20 +587,7 @@ function LandingPage() {
 
       {/* Projects Grid */}
       <section id="work" className="py-32 px-6 md:px-24 bg-[#F9F9F9]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-24">
-            <div>
-              <span className="text-xs uppercase tracking-[0.3em] text-muted mb-4 block">Selected Works</span>
-              <h2 className="text-5xl md:text-7xl font-serif italic">Portfolio</h2>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-x-12 gap-y-32">
-            {PROJECTS.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
-        </div>
+        <ProjectsGrid />
       </section>
 
       {/* Services / Approach */}
