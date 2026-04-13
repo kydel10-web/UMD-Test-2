@@ -252,7 +252,7 @@ function Resume() {
   );
 }
 
-function Explorations() {
+function Sketches() {
   const placeholders = Array.from({ length: 9 });
 
   return (
@@ -266,7 +266,7 @@ function Explorations() {
 
         <div className="mb-16">
           <span className="text-xs uppercase tracking-[0.3em] text-muted mb-4 block">Selected Works</span>
-          <h1 className="text-5xl md:text-7xl font-serif italic">Explorations</h1>
+          <h1 className="text-5xl md:text-7xl font-serif italic">Sketches</h1>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -300,7 +300,7 @@ function LandingPage() {
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
           <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
           <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
-          <Link to="/explorations" className="hover:opacity-50 transition-opacity">Explorations</Link>
+          <Link to="/explorations" className="hover:opacity-50 transition-opacity">Sketches</Link>
           <Link to="/resume" className="hover:opacity-50 transition-opacity">Resume</Link>
           <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
         </div>
@@ -322,7 +322,7 @@ function LandingPage() {
         >
           <a href="#work" onClick={() => setIsMenuOpen(false)}>Work</a>
           <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-          <Link to="/explorations" onClick={() => setIsMenuOpen(false)}>Explorations</Link>
+          <Link to="/explorations" onClick={() => setIsMenuOpen(false)}>Sketches</Link>
           <Link to="/resume" onClick={() => setIsMenuOpen(false)}>Resume</Link>
           <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </motion.div>
@@ -396,7 +396,7 @@ function LandingPage() {
               viewport={{ once: true }}
               className="lg:col-span-5"
             >
-              <div className="relative overflow-hidden w-96 mx-auto lg:mx-0">
+              <div className="relative overflow-hidden w-full mx-auto lg:mx-0">
                 <img
                   src="/images/profile.jpg"
                   alt="Lead Architect"
@@ -428,7 +428,7 @@ function LandingPage() {
                 <div>
                   <h4 className="text-xs uppercase tracking-widest font-semibold mb-4">Education</h4>
                   <ul className="text-sm space-y-2 text-muted">
-                    <li>BA Architecture, University of Maryland</li>
+                    <li>Bachelor of Architecture, University of Maryland</li>
                     <li>Minor Construction Project Management, University of Maryland</li>
                   </ul>
                 </div>
@@ -552,7 +552,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/explorations" element={<Explorations />} />
+        <Route path="/explorations" element={<Sketches />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
     </Router>
