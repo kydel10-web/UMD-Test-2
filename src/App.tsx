@@ -267,8 +267,8 @@ function LandingPage() {
         </motion.div>
         
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
-          <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
           <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
+          <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
           <Link to="/resume" className="hover:opacity-50 transition-opacity">Resume</Link>
           <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
         </div>
@@ -391,15 +391,7 @@ function LandingPage() {
                 </p>
               </div>
 
-              <div className="mt-16 grid grid-cols-2 gap-8 border-t border-border pt-12">
-                <div>
-                  <h4 className="text-xs uppercase tracking-widest font-semibold mb-4">Recognition</h4>
-                  <ul className="text-sm space-y-2 text-muted">
-                    <li>Pritzker Prize Nominee (2025)</li>
-                    <li>AIA Gold Medal (2023)</li>
-                    <li>European Architecture Award</li>
-                  </ul>
-                </div>
+              <div className="mt-16 border-t border-border pt-12">
                 <div>
                   <h4 className="text-xs uppercase tracking-widest font-semibold mb-4">Education</h4>
                   <ul className="text-sm space-y-2 text-muted">
