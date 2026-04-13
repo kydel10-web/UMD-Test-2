@@ -390,11 +390,9 @@ function Sketches() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {placeholders.map((_, i) => (
-            <div key={i} className="aspect-[4/3] bg-neutral-100 rounded-lg flex items-center justify-center">
-              <span className="text-xs uppercase tracking-widest text-muted">Image {i + 1}</span>
-            </div>
-          ))}
+          <div className="bg-neutral-100 rounded-lg overflow-hidden">
+            <img src="/images/sketch-weight-of-things.png" alt="Weight of Things Still Life" className="w-full h-auto object-contain" />
+          </div>
         </div>
       </div>
     </div>
