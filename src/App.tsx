@@ -59,7 +59,6 @@ const PROJECTS = [
     year: "Fall 2025",
     images: [
       "/images/jackson-elevation.png",
-      "/images/jackson-longitudinal-section-final.png",
       "/images/jackson-transverse-highres.png",
       "/images/jackson-diagram.png",
       "/images/mondrian-part-mass.png"
