@@ -37,6 +37,7 @@ const PROJECTS = [
     year: "TBD",
     images: [
       "/images/spinora-view-7.png",
+      "/images/spinora-exploded-axon.png",
       "/images/spinora-grasshopper.png",
       "/images/spinora-top-view.png",
       "/images/spinora-view-2.png",
