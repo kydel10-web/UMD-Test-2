@@ -413,15 +413,21 @@ function Sketches() {
         </div>
 
         <div className="flex flex-col gap-12 max-w-2xl mx-auto">
-<div className="bg-neutral-100 rounded-lg overflow-hidden">
-            <img src="/images/spinora-sketches.png" alt="Spinora Lamp Sketches" className="w-full h-auto object-contain" />
-          </div>
-          <div className="bg-neutral-100 rounded-lg overflow-hidden">
-            <img src="/images/sketch-microscope.png" alt="Microscope Still Life" className="w-full h-auto object-contain" />
-          </div>
-          <div className="bg-neutral-100 rounded-lg overflow-hidden">
-            <img src="/images/sketch-head-bust.png" alt="Head Bust Still Life" className="w-full h-auto object-contain" />
-          </div>
+          {[
+            { src: "/images/spinora-sketches.png", title: "Spinora Lamp Sketches" },
+            { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
+            { src: "/images/sketch-head-bust.png", title: "Head Bust Still Life" }
+          ].map(({ src, title }) => (
+            <div key={src} className="group relative bg-neutral-100 rounded-lg overflow-hidden">
+              <img src={src} alt={title} className="w-full h-auto object-contain group-hover:opacity-70 transition-opacity duration-300" />
+              <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-white text-xl font-serif italic drop-shadow-lg">{title}</h3>
+              </div>
+              <div className="mt-3 px-1">
+                <h3 className="text-base font-serif">{title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
