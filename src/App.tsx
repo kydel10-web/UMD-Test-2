@@ -229,13 +229,16 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index % 2 * 0.2, duration: 0.8 }}
-      className="group cursor-pointer w-full transition-transform duration-300 hover:-translate-y-2 hover:drop-shadow-xl"
+      className="group cursor-pointer w-full"
       onClick={() => onOpen(project)}
     >
       <div className="mb-8">
           <h3 className="text-4xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
       </div>
-      <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100">
+      <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100 group">
+        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex items-center justify-center">
+          <span className="text-white text-xs uppercase tracking-[0.3em] font-medium">View Project</span>
+        </div>
         <AnimatePresence initial={false} custom={direction}>
           <motion.img 
             key={currentImageIndex}
