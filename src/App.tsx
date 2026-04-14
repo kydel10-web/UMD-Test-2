@@ -429,7 +429,7 @@ function SketchGallery() {
             className="group cursor-zoom-in bg-neutral-100 rounded-lg overflow-hidden"
             onClick={() => setSelected({ src, title })}
           >
-            <img src={src} alt={title} className="w-full h-auto object-contain group-hover:opacity-80 transition-opacity duration-300" />
+            <img src={src} alt={title} className="w-full h-auto object-contain transition-transform duration-700 ease-in-out group-hover:scale-110" />
             <div className="mt-3 px-1 pb-3">
               <h3 className="text-base font-serif">{title}</h3>
             </div>
