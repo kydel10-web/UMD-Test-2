@@ -412,15 +412,15 @@ function Sketches() {
           <h1 className="text-5xl md:text-7xl font-serif italic">Sketches</h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-neutral-100 rounded-lg overflow-hidden">
-            <img src="/images/sketch-weight-of-things.png" alt="Weight of Things Still Life" className="w-full h-auto object-contain" />
-          </div>
-          <div className="bg-neutral-100 rounded-lg overflow-hidden">
+        <div className="flex flex-col gap-12 max-w-2xl mx-auto">
+<div className="bg-neutral-100 rounded-lg overflow-hidden">
             <img src="/images/spinora-sketches.png" alt="Spinora Lamp Sketches" className="w-full h-auto object-contain" />
           </div>
           <div className="bg-neutral-100 rounded-lg overflow-hidden">
             <img src="/images/sketch-microscope.png" alt="Microscope Still Life" className="w-full h-auto object-contain" />
+          </div>
+          <div className="bg-neutral-100 rounded-lg overflow-hidden">
+            <img src="/images/sketch-head-bust.png" alt="Head Bust Still Life" className="w-full h-auto object-contain" />
           </div>
         </div>
       </div>
