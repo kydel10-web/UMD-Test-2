@@ -36,9 +36,8 @@ const PROJECTS = [
     category: "Product Design",
     year: "TBD",
     images: [
-      "/images/spinora-physical-model.png",
-      "/images/spinora-light-flow.png",
       "/images/spinora-lamp-model.png",
+      "/images/spinora-light-flow.png",
       "/images/spinora-view-7.png",
       "/images/spinora-exploded-axon.png",
       "/images/spinora-top-view.png",
