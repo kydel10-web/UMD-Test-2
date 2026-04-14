@@ -401,6 +401,43 @@ function Resume() {
   );
 }
 
+function SketchEyes() {
+  const [angle, setAngle] = useState(0);
+  const eyesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!eyesRef.current) return;
+      const rect = eyesRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      setAngle(Math.atan2(dy, dx));
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const pupilX = Math.cos(angle) * 5;
+  const pupilY = Math.sin(angle) * 5;
+
+  return (
+    <div ref={eyesRef} className="flex gap-4 justify-center my-8">
+      {[0, 1].map((i) => (
+        <div key={i} className="w-12 h-12 rounded-full border-2 border-neutral-400 bg-white flex items-center justify-center relative overflow-hidden">
+          <div
+            className="w-5 h-5 rounded-full bg-neutral-800 absolute transition-transform duration-75"
+            style={{ transform: `translate(${pupilX}px, ${pupilY}px)` }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-white absolute top-0.5 left-0.5" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 const SKETCHES = [
   { src: "/images/spinora-sketches.png", title: "Spinora Lamp Sketches" },
   { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
@@ -482,6 +519,7 @@ function Sketches() {
           <h1 className="text-5xl md:text-7xl font-serif italic">Sketches</h1>
         </div>
 
+        <SketchEyes />
         <SketchGallery />
       </div>
     </div>
