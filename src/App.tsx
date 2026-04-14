@@ -60,7 +60,7 @@ const PROJECTS = [
     images: [
       "/images/jackson-elevation.png",
       "/images/jackson-transverse-highres.png",
-      "/images/jackson-circulation.png",
+      "/images/jackson-circulation-diagram.png",
       "/images/jackson-exterior.png",
       "/images/jackson-interior-perspective.png",
       "/images/jackson-diagram.png",
