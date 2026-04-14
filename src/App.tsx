@@ -226,7 +226,7 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index % 2 * 0.2, duration: 0.8 }}
-      className="group cursor-pointer w-full"
+      className="group cursor-pointer w-full transition-transform duration-300 hover:-translate-y-2 hover:drop-shadow-xl"
       onClick={() => onOpen(project)}
     >
       <div className="mb-8">
