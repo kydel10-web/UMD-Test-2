@@ -83,6 +83,21 @@ type Project = typeof PROJECTS[0];
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!imageContainerRef.current) return;
+    const rect = imageContainerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => setMousePos({ x: 0, y: 0 });
+
+  const isSpinora = project.title === "Spinora Lamp Design";
+  const isFirstImage = currentImageIndex === 0;
 
   const variants = {
     enter: (direction: number) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
@@ -126,7 +141,12 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </div>
 
         {/* Image Carousel */}
-        <div className="relative aspect-[16/9] bg-neutral-100 overflow-hidden">
+        <div
+          ref={imageContainerRef}
+          className="relative aspect-[16/9] bg-neutral-100 overflow-hidden"
+          onMouseMove={isSpinora && isFirstImage ? handleMouseMove : undefined}
+          onMouseLeave={isSpinora && isFirstImage ? handleMouseLeave : undefined}
+        >
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               key={currentImageIndex}
@@ -138,7 +158,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
               src={project.images[currentImageIndex]}
               alt={project.title}
-              className="absolute inset-0 w-full h-full object-contain"
+              className="absolute inset-0 w-full h-full object-contain transition-transform duration-100 ease-out"
+              style={isSpinora && isFirstImage ? { transform: `translate(${mousePos.x}px, ${mousePos.y}px) scale(1.05)` } : {}}
             />
           </AnimatePresence>
           <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
