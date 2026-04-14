@@ -148,7 +148,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           onMouseLeave={isSpinora && isFirstImage ? handleMouseLeave : undefined}
         >
           <AnimatePresence initial={false} custom={direction}>
-            <motion.img
+            <motion.div
               key={currentImageIndex}
               custom={direction}
               variants={variants}
@@ -156,11 +156,15 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               animate="center"
               exit="exit"
               transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-              src={project.images[currentImageIndex]}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-contain transition-transform duration-100 ease-out"
-              style={isSpinora && isFirstImage ? { transform: `translate(${mousePos.x}px, ${mousePos.y}px) scale(1.05)` } : {}}
-            />
+              className="absolute inset-0"
+            >
+              <img
+                src={project.images[currentImageIndex]}
+                alt={project.title}
+                className="w-full h-full object-contain transition-transform duration-100 ease-out"
+                style={isSpinora && isFirstImage ? { transform: `translate(${mousePos.x}px, ${mousePos.y}px) scale(1.05)` } : {}}
+              />
+            </motion.div>
           </AnimatePresence>
           <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
             <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
