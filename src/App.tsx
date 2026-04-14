@@ -398,7 +398,7 @@ function Resume() {
 const SKETCHES = [
   { src: "/images/spinora-sketches.png", title: "Spinora Lamp Sketches" },
   { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
-  { src: "/images/sketch-head-bust.png", title: "Head Bust Still Life" }
+  { src: "/images/sketch-head-bust.png", title: "Weight of Things" }
 ];
 
 function SketchGallery() {
@@ -560,8 +560,8 @@ function LandingPage() {
       <section className="h-screen relative flex items-center justify-center overflow-hidden">
         <motion.div
           initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          animate={{ scale: [1.1, 1, 1.08, 1.04, 1.1], opacity: 1 }}
+          transition={{ opacity: { duration: 1.5, ease: "easeOut" }, scale: { duration: 20, ease: "easeInOut", repeat: Infinity, repeatType: "loop", times: [0, 0.1, 0.4, 0.7, 1] } }}
           className="absolute inset-0"
         >
           <img
