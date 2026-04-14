@@ -395,6 +395,70 @@ function Resume() {
   );
 }
 
+const SKETCHES = [
+  { src: "/images/spinora-sketches.png", title: "Spinora Lamp Sketches" },
+  { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
+  { src: "/images/sketch-head-bust.png", title: "Head Bust Still Life" }
+];
+
+function SketchGallery() {
+  const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [selected]);
+
+  return (
+    <>
+      <div className="flex flex-col gap-12 max-w-2xl mx-auto">
+        {SKETCHES.map(({ src, title }) => (
+          <div
+            key={src}
+            className="group cursor-zoom-in bg-neutral-100 rounded-lg overflow-hidden"
+            onClick={() => setSelected({ src, title })}
+          >
+            <img src={src} alt={title} className="w-full h-auto object-contain group-hover:opacity-80 transition-opacity duration-300" />
+            <div className="mt-3 px-1 pb-3">
+              <h3 className="text-base font-serif">{title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4"
+            onClick={() => setSelected(null)}
+          >
+            <button className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity">
+              <X size={28} />
+            </button>
+            <motion.img
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              src={selected.src}
+              alt={selected.title}
+              className="max-h-[85vh] max-w-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-white font-serif italic mt-4 text-lg">{selected.title}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
 function Sketches() {
   const placeholders = Array.from({ length: 9 });
 
@@ -412,23 +476,7 @@ function Sketches() {
           <h1 className="text-5xl md:text-7xl font-serif italic">Sketches</h1>
         </div>
 
-        <div className="flex flex-col gap-12 max-w-2xl mx-auto">
-          {[
-            { src: "/images/spinora-sketches.png", title: "Spinora Lamp Sketches" },
-            { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
-            { src: "/images/sketch-head-bust.png", title: "Head Bust Still Life" }
-          ].map(({ src, title }) => (
-            <div key={src} className="group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <img src={src} alt={title} className="w-full h-auto object-contain group-hover:opacity-70 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-white text-xl font-serif italic drop-shadow-lg">{title}</h3>
-              </div>
-              <div className="mt-3 px-1">
-                <h3 className="text-base font-serif">{title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
+        <SketchGallery />
       </div>
     </div>
   );
