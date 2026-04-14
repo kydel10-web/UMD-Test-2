@@ -162,7 +162,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 src={project.images[currentImageIndex]}
                 alt={project.title}
                 className="w-full h-full object-contain transition-transform duration-100 ease-out"
-                style={isSpinora && isFirstImage ? { transform: `translate(${mousePos.x}px, ${mousePos.y}px) scale(1.05)` } : {}}
+                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(1.02)`, transition: "transform 0.1s ease-out" } : {}}
               />
             </motion.div>
           </AnimatePresence>
