@@ -143,7 +143,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         {/* Image Carousel */}
         <div
           ref={imageContainerRef}
-          className="relative aspect-[16/9] bg-neutral-100 overflow-hidden"
+          className={`relative aspect-[16/9] overflow-hidden ${isSpinora && currentImageIndex === 1 ? 'bg-white' : 'bg-neutral-100'}`}
           onMouseMove={isSpinora && isFirstImage ? handleMouseMove : undefined}
           onMouseLeave={isSpinora && isFirstImage ? handleMouseLeave : undefined}
         >
