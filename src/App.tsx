@@ -17,8 +17,6 @@ const PROJECTS = [
     images: [
       "/images/mondrian-painting.png",
       "/images/mondrian-axon.png",
-      "/images/mondrian-exploded-axon.png",
-      "/images/mondrian-hierarchy-diagram.png",
       "/images/mondrian-technical.png"
     ],
     imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy Diagram", "Plans"],
@@ -37,9 +35,7 @@ const PROJECTS = [
     year: "TBD",
     images: [
       "/images/spinora-lamp-model.png",
-      "/images/spinora-light-flow.png",
       "/images/spinora-view-7.png",
-      "/images/spinora-exploded-axon.png",
       "/images/spinora-top-view.png",
       "/images/spinora-view-2.png",
       "/images/spinora-view-4.png",
@@ -60,13 +56,7 @@ const PROJECTS = [
     category: "Residential",
     year: "Fall 2025",
     images: [
-      "/images/jackson-elevation.png",
-      "/images/jackson-transverse-highres.png",
-      "/images/jackson-circulation-diagram.png",
-      "/images/jackson-exterior.png",
-      "/images/jackson-interior-perspective.png",
-      "/images/jackson-diagram.png",
-      "/images/mondrian-part-mass.png"
+      "/images/jackson-elevation.png"
     ],
     description: "The Jackson Family Retreat Home is located in Big Sur California and designed by Fougeron Architecture in 2005. The California household consists of a series of connected volumes that balance open and secluded spaces through transparency and material variation. The home is composed of three volumes being the perpendicular wing with the bedroom spaces and living room space, the front copper screen wall, and the vertical circulation defined by concrete walls. The front copper linear form runs parallel to the Canyon and serves as the building's datum used to ground the composition while highlighting the relationship of the masses.",
     specs: [
