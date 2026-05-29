@@ -419,7 +419,11 @@ function Resume() {
 
 
 const SKETCHES = [
-{ src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
+  { src: "/images/sketch-before-axon.png", title: "Before Axon" },
+  { src: "/images/sketch-boromini.png", title: "Boromini Sketch" },
+  { src: "/images/sketch-cenograph.png", title: "Cenograph Sketch" },
+  { src: "/images/sketch-planter.png", title: "Planter Final Model" },
+  { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
   { src: "/images/sketch-head-bust.png", title: "Weight of Things" }
 ];
 
