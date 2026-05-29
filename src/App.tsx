@@ -485,6 +485,52 @@ function SketchGallery() {
   );
 }
 
+function Artwork() {
+  const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
+  const artworks: { src: string; title: string }[] = [];
+
+  useEffect(() => {
+    if (selected) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [selected]);
+
+  return (
+    <div className="min-h-screen bg-white py-24 px-6 md:px-24">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center mb-16">
+          <Link to="/" className="flex items-center gap-2 text-xs uppercase tracking-widest hover:opacity-50 transition-opacity">
+            <ArrowLeft size={16} /> Back to Portfolio
+          </Link>
+        </div>
+        <div className="mb-16">
+          <span className="text-xs uppercase tracking-[0.3em] text-muted mb-4 block">Selected Works</span>
+          <h1 className="text-5xl md:text-7xl font-serif italic">Artwork</h1>
+        </div>
+        <div className="flex flex-col gap-12 max-w-2xl mx-auto">
+          {artworks.map(({ src, title }) => (
+            <div key={src} className="group cursor-zoom-in bg-neutral-100 rounded-lg overflow-hidden" onClick={() => setSelected({ src, title })}>
+              <img src={src} alt={title} className="w-full h-auto object-contain transition-transform duration-700 ease-in-out group-hover:scale-110" />
+              <div className="mt-3 px-1 pb-3">
+                <h3 className="text-base font-serif">{title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+        <AnimatePresence>
+          {selected && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4" onClick={() => setSelected(null)}>
+              <button className="absolute top-6 right-6 text-white hover:opacity-50 transition-opacity"><X size={28} /></button>
+              <motion.img initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} src={selected.src} alt={selected.title} className="max-h-[85vh] max-w-full object-contain rounded-lg" onClick={(e) => e.stopPropagation()} />
+              <p className="text-white font-serif italic mt-4 text-lg">{selected.title}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 function Sketches() {
   const placeholders = Array.from({ length: 9 });
 
@@ -555,6 +601,7 @@ function LandingPage() {
           <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
           <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
           <Link to="/explorations" className="hover:opacity-50 transition-opacity">Sketches</Link>
+          <Link to="/artwork" className="hover:opacity-50 transition-opacity">Artwork</Link>
           <Link to="/resume" className="hover:opacity-50 transition-opacity">Resume</Link>
           <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
         </div>
@@ -577,6 +624,7 @@ function LandingPage() {
           <a href="#work" onClick={() => setIsMenuOpen(false)}>Work</a>
           <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
           <Link to="/explorations" onClick={() => setIsMenuOpen(false)}>Sketches</Link>
+          <Link to="/artwork" onClick={() => setIsMenuOpen(false)}>Artwork</Link>
           <Link to="/resume" onClick={() => setIsMenuOpen(false)}>Resume</Link>
           <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </motion.div>
@@ -794,6 +842,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/explorations" element={<Sketches />} />
+        <Route path="/artwork" element={<Artwork />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
     </Router>
