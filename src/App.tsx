@@ -411,7 +411,7 @@ function Resume() {
                 <div>
                   <h3 className="text-lg font-serif italic">University of Maryland</h3>
                   <p className="text-xs text-muted uppercase tracking-widest">Minor in Construction Project Management</p>
-                  <p className="text-xs text-muted mt-1">GPA 3.43</p>
+                  <p className="text-xs text-muted mt-1">GPA 3.34</p>
                 </div>
               </div>
             </section>
