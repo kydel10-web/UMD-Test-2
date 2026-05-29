@@ -35,12 +35,9 @@ const PROJECTS = [
     year: "TBD",
     images: [
       "/images/spinora-lamp-model.png",
-      "/images/spinora-view-7.png",
-      "/images/spinora-top-view.png",
       "/images/spinora-view-2.png",
       "/images/spinora-view-4.png",
-      "/images/spinora-view-5.png",
-      "/images/spinora-view-9.png"
+      "/images/spinora-view-5.png"
     ],
     description: "TBD",
     specs: [
