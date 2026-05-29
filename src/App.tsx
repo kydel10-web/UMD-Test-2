@@ -16,7 +16,6 @@ const PROJECTS = [
     year: "Spring 2024",
     images: [
       "/images/mondrian-painting.png",
-      "/images/mondrian-axon.png",
       "/images/mondrian-technical.png"
     ],
     imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy Diagram", "Plans"],
