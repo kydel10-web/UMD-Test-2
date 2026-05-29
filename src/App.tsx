@@ -423,8 +423,6 @@ const SKETCHES = [
   { src: "/images/sketch-boromini.png", title: "Boromini Sketch" },
   { src: "/images/sketch-cenograph.png", title: "Cenograph Sketch" },
   { src: "/images/sketch-planter.png", title: "Planter Final Model" },
-  { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
-  { src: "/images/sketch-head-bust.png", title: "Weight of Things" }
 ];
 
 function SketchGallery() {
@@ -487,7 +485,10 @@ function SketchGallery() {
 
 function Artwork() {
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
-  const artworks: { src: string; title: string }[] = [];
+  const artworks = [
+    { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
+    { src: "/images/sketch-head-bust.png", title: "Weight of Things" }
+  ];
 
   useEffect(() => {
     if (selected) document.body.style.overflow = "hidden";
