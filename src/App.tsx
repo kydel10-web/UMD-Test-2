@@ -65,6 +65,25 @@ const PROJECTS = [
       { label: "Materials", value: "TBD" },
       { label: "Year", value: "Fall 2025" }
     ]
+  },
+  {
+    id: 4,
+    title: "Wall House Planter",
+    category: "Product Design",
+    year: "TBD",
+    images: [
+      "/images/planter-before-axon.png",
+      "/images/planter-final-model.png",
+      "/images/planter-sketch.png",
+      "/images/planter-water-diagram.png"
+    ],
+    description: "TBD",
+    specs: [
+      { label: "Location", value: "TBD" },
+      { label: "Type", value: "TBD" },
+      { label: "Materials", value: "TBD" },
+      { label: "Year", value: "TBD" }
+    ]
   }
 ];
 
