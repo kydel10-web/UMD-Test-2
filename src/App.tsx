@@ -351,7 +351,7 @@ function Resume() {
         <div className="print:block">
           <header className="border-b border-border pb-12 mb-12">
             <h1 className="text-5xl md:text-7xl font-serif italic mb-4">Kyle Delgado</h1>
-            <p className="text-xs uppercase tracking-[0.4em] text-muted">Fourth Year Architecture Student</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-muted">Recent Graduate</p>
             <div className="mt-8 flex flex-wrap gap-x-12 gap-y-4 text-sm text-muted">
               <span>Manassas, VA</span>
               <span>kyifc03@gmail.com</span>
@@ -363,7 +363,7 @@ function Resume() {
           <section className="mb-16">
             <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Profile</h2>
             <p className="text-muted leading-relaxed text-lg">
-              Fourth Year Architecture Student with a minor in Construction Project Management. Experienced in managing project documentation and adept in utilizing design software. An effective team collaborator with strong analytical skills demonstrated through both volunteer and professional roles.
+              Recent graduate from the University of Maryland with a Minor in Construction Project Management. Experienced in managing project documentation and adept in utilizing design software. An effective team collaborator with strong analytical skills demonstrated through both volunteer and professional roles.
             </p>
           </section>
 
@@ -406,7 +406,7 @@ function Resume() {
                 <div>
                   <h3 className="text-lg font-serif italic">University of Maryland</h3>
                   <p className="text-xs text-muted uppercase tracking-widest">Bachelor of Architecture</p>
-                  <p className="text-xs text-muted mt-1">GPA 3.52</p>
+                  <p className="text-xs text-muted mt-1">GPA 3.55</p>
                 </div>
                 <div>
                   <h3 className="text-lg font-serif italic">University of Maryland</h3>
