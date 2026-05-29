@@ -419,8 +419,7 @@ function Resume() {
 
 
 const SKETCHES = [
-  { src: "/images/spinora-sketches.png", title: "Spinora Lamp Sketches" },
-  { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
+{ src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
   { src: "/images/sketch-head-bust.png", title: "Weight of Things" }
 ];
 
