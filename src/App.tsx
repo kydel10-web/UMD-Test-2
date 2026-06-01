@@ -71,9 +71,9 @@ const PROJECTS = [
     year: "TBD",
     images: [
       "/images/planter-before-axon.png",
-      "/images/planter-final-model.png",
+      "/images/planter-water-diagram.png",
       "/images/planter-sketch.png",
-      "/images/planter-water-diagram.png"
+      "/images/planter-final-model.png"
     ],
     description: "TBD",
     specs: [
