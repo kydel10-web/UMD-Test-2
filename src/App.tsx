@@ -16,6 +16,8 @@ const PROJECTS = [
     year: "Spring 2024",
     images: [
       "/images/mondrian-painting.png",
+      "/images/mondrian-exploded-axon-new.png",
+      "/images/mondrian-physical-model.png",
       "/images/mondrian-technical.png"
     ],
     imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy Diagram", "Plans"],
@@ -71,8 +73,8 @@ const PROJECTS = [
     year: "TBD",
     images: [
       "/images/planter-before-axon.png",
-      "/images/planter-water-diagram.png",
       "/images/planter-sketch.png",
+      "/images/planter-water-diagram.png",
       "/images/planter-final-model.png"
     ],
     description: "TBD",
