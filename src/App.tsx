@@ -614,7 +614,7 @@ function LandingPage() {
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-serif tracking-widest uppercase"
         >
-          <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-16 w-auto" /></Link>
+          <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-24 w-auto" /></Link>
         </motion.div>
         
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
