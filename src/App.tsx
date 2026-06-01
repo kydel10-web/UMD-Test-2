@@ -774,7 +774,6 @@ function LandingPage() {
           <div className="md:col-span-8 space-y-24">
             {[
               { title: "Object Design", desc: "Crafting intimate sanctuaries that reflect the unique rhythms of domestic life." },
-              { title: "Residential Design", desc: "Designing sustainable cityscapes that foster community and connectivity." },
               { title: "Parametric Design", desc: "Curating the tactile experience of space through material and light." }
             ].map((service, i) => (
               <motion.div 
