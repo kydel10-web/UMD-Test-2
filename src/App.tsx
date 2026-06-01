@@ -43,7 +43,7 @@ const PROJECTS = [
     description: "The Spinora Lamp Design uses design software such as Rhinoceros 3D and Grasshopper to form its organic shape. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives. The lamp possesses lines that are placed on the surface to form a ribbed texture and contribute to the lamp's curvilinearity.",
     specs: [
       { label: "Location", value: "College Park, MD" },
-      { label: "Type", value: "TBD" },
+      { label: "Type", value: "Lamp" },
       { label: "Materials", value: "3D Printing" },
       { label: "Year", value: "Fall 2024" }
     ]
