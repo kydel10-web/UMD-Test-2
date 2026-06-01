@@ -617,7 +617,7 @@ function LandingPage() {
           <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-40 w-auto" /></Link>
         </motion.div>
         
-        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
+        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
           <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
           <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
           <Link to="/explorations" className="hover:opacity-50 transition-opacity">Sketches</Link>
