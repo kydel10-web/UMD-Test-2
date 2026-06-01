@@ -77,11 +77,11 @@ const PROJECTS = [
       "/images/planter-water-diagram.png",
       "/images/planter-final-model.png"
     ],
-    description: "TBD",
+    description: "The Wall House II Elevation by John Hedjuk interests me as it illustrates three stacked masses that act as performers bringing different energies on a concrete stage. The elevation is composed of four parts: The wall, the bottom mass, middle mass, and top mass that are joined vertically by columns. The vertical columns that joined the 3 masses in the Planter behave as pipes that channel water coming into the system to then be collected into a reservoir to form a closed loop irrigation system.",
     specs: [
-      { label: "Location", value: "TBD" },
-      { label: "Type", value: "TBD" },
-      { label: "Materials", value: "TBD" },
+      { label: "Location", value: "College Park, MD" },
+      { label: "Type", value: "Planter" },
+      { label: "Materials", value: "Wood, Dowels, Plastic, Drywall" },
       { label: "Year", value: "TBD" }
     ]
   }
