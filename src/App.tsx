@@ -33,19 +33,19 @@ const PROJECTS = [
     id: 2,
     title: "Spinora Lamp Design",
     category: "Product Design",
-    year: "TBD",
+    year: "Fall 2024",
     images: [
       "/images/spinora-lamp-model.png",
       "/images/spinora-view-2.png",
       "/images/spinora-view-4.png",
       "/images/spinora-view-5.png"
     ],
-    description: "TBD",
+    description: "The Spinora Lamp Design uses design software such as Rhinoceros 3D and Grasshopper to form its organic shape. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives. The lamp possesses lines that are placed on the surface to form a ribbed texture and contribute to the lamp's curvilinearity.",
     specs: [
-      { label: "Location", value: "TBD" },
+      { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "TBD" },
-      { label: "Materials", value: "TBD" },
-      { label: "Year", value: "TBD" }
+      { label: "Materials", value: "3D Printing" },
+      { label: "Year", value: "Fall 2024" }
     ]
   },
   {
@@ -438,10 +438,10 @@ function Resume() {
 
 
 const SKETCHES = [
-  { src: "/images/sketch-before-axon.png", title: "Before Axon" },
+  { src: "/images/sketch-before-axon.png", title: "Axonometric" },
   { src: "/images/sketch-boromini.png", title: "Boromini Sketch" },
   { src: "/images/sketch-cenograph.png", title: "Cenograph Sketch" },
-  { src: "/images/sketch-planter.png", title: "Planter Final Model" },
+  { src: "/images/sketch-planter.png", title: "Planter Sketch" },
 ];
 
 function SketchGallery() {
