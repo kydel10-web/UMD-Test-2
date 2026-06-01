@@ -70,7 +70,7 @@ const PROJECTS = [
     id: 4,
     title: "Wall House Planter",
     category: "Product Design",
-    year: "TBD",
+    year: "Spring 2026",
     images: [
       "/images/planter-before-axon.png",
       "/images/planter-sketch.png",
@@ -82,7 +82,7 @@ const PROJECTS = [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Planter" },
       { label: "Materials", value: "Wood, Dowels, Plastic, Drywall" },
-      { label: "Year", value: "TBD" }
+      { label: "Year", value: "Spring 2026" }
     ]
   }
 ];
