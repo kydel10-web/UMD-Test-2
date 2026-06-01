@@ -614,7 +614,7 @@ function LandingPage() {
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-serif tracking-widest uppercase"
         >
-          <Link to="/">kydeldesign</Link>
+          <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-10 w-auto" /></Link>
         </motion.div>
         
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
@@ -686,7 +686,7 @@ function LandingPage() {
             className="text-sm md:text-base uppercase tracking-[0.4em] font-light mb-10"
             style={{ textShadow: "0 1px 12px rgba(0,0,0,0.5)" }}
           >
-            Furniture Design · Residential
+            Object Design · Parametric Design
           </motion.p>
           <motion.a
             href="#work"
