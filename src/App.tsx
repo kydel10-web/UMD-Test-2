@@ -52,7 +52,10 @@ const PROJECTS = [
     category: "Residential",
     year: "Fall 2025",
     images: [
-      "/images/jackson-elevation.png"
+      "/images/jackson-elevation.png",
+      "/images/jackson-elevation-fixed.png",
+      "/images/jackson-transverse-section.png",
+      "/images/jackson-parti-diagram.png"
     ],
     description: "The Jackson Family Retreat Home is located in Big Sur California and designed by Fougeron Architecture in 2005. The California household consists of a series of connected volumes that balance open and secluded spaces through transparency and material variation. The home is composed of three volumes being the perpendicular wing with the bedroom spaces and living room space, the front copper screen wall, and the vertical circulation defined by concrete walls. The front copper linear form runs parallel to the Canyon and serves as the building's datum used to ground the composition while highlighting the relationship of the masses.",
     specs: [
