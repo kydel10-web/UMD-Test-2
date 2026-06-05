@@ -20,12 +20,12 @@ const PROJECTS = [
       "/images/mondrian-physical-model.png",
       "/images/mondrian-technical.png"
     ],
-    imageTypes: ["Painting", "Axonometric", "Exploded Axonometric", "Hierarchy Diagram", "Plans"],
+    imageTypes: ["Painting", "Exploded Axonometric", "Physical Model", "Plans"],
     description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking.",
     specs: [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Painting" },
-      { label: "Materials", value: "TBD" },
+      { label: "Materials", value: "Chipboard, Dowels" },
       { label: "Year", value: "Spring 2024" }
     ]
   },
@@ -37,8 +37,8 @@ const PROJECTS = [
     images: [
       "/images/spinora-lamp-model.png",
       "/images/spinora-view-2.png",
-      "/images/spinora-view-4.png",
-      "/images/spinora-view-5.png"
+      "/images/spinora-view-5.png",
+      "/images/spinora-grasshopper.png"
     ],
     description: "The Spinora Lamp Design uses design software such as Rhinoceros 3D and Grasshopper to form its organic shape. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives. The lamp possesses lines that are placed on the surface to form a ribbed texture and contribute to the lamp's curvilinearity.",
     specs: [
