@@ -40,6 +40,7 @@ const PROJECTS = [
       "/images/spinora-view-5.png",
       "/images/spinora-grasshopper.png"
     ],
+    imageTypes: ["Physical Model", "Front Elevation", "Axonometric", "Grasshopper Definition"],
     description: "The Spinora Lamp Design uses design software such as Rhinoceros 3D and Grasshopper to form its organic shape. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives. The lamp possesses lines that are placed on the surface to form a ribbed texture and contribute to the lamp's curvilinearity.",
     specs: [
       { label: "Location", value: "College Park, MD" },
