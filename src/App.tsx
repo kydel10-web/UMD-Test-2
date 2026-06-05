@@ -44,7 +44,7 @@ const PROJECTS = [
     specs: [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Lamp" },
-      { label: "Materials", value: "3D Printing" },
+      { label: "Materials", value: "(PLA), 3D Printed" },
       { label: "Year", value: "Fall 2024" }
     ]
   },
