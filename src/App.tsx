@@ -612,7 +612,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen selection:bg-ink selection:text-bg">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-white">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-white bg-navy">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -845,7 +845,7 @@ function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-24 border-t border-border flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] text-muted">
+      <footer className="bg-navy py-12 px-6 md:px-24 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] text-white/60">
         <div>© 2026 kydeldesign</div>
         <div className="flex gap-12">
           <Link to="/resume" className="hover:text-accent transition-colors">Resume</Link>
