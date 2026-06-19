@@ -609,6 +609,7 @@ function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [navOnDark, setNavOnDark] = useState(true);
+  const [logoOnDark, setLogoOnDark] = useState(false);
   const containerRef = useRef(null);
   const expertiseRef = useRef<HTMLElement>(null);
 
@@ -622,6 +623,7 @@ function LandingPage() {
       }
       setScrolled(!overHero);
       setNavOnDark(overHero || overExpertise);
+      setLogoOnDark(overExpertise);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -638,7 +640,7 @@ function LandingPage() {
         >
           <Link to="/">
             <img
-              src={navOnDark ? "/images/logo-light.png" : "/images/logo.png"}
+              src={logoOnDark ? "/images/logo-light.png" : "/images/logo.png"}
               alt="kydeldesign"
               className="h-52 w-auto"
             />
