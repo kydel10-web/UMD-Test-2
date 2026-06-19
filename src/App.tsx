@@ -607,12 +607,19 @@ function ProjectsGrid() {
 
 function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const containerRef = useRef(null);
-  
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.8);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen selection:bg-ink selection:text-bg">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-white">
+      <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center transition-colors duration-300 ${scrolled ? "bg-white/80 backdrop-blur-sm text-ink" : "text-white"}`}>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -621,7 +628,7 @@ function LandingPage() {
           <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-52 w-auto" /></Link>
         </motion.div>
 
-        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em] text-white" style={{ mixBlendMode: "difference" }}>
+        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={!scrolled ? { textShadow: "0 1px 8px rgba(0,0,0,0.8)" } : undefined}>
           <a href="#about" className="hover:text-accent transition-colors">About</a>
           <a href="#work" className="hover:text-accent transition-colors">Work</a>
           <Link to="/explorations" className="hover:text-accent transition-colors">Sketches</Link>
