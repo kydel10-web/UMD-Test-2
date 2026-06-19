@@ -9,6 +9,7 @@
   --color-ink: #1A1A1A;
   --color-muted: #717171;
   --color-border: #E5E5E5;
+  --color-accent: #B85C38;
 }
 
 @layer base {

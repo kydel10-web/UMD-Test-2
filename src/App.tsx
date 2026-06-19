@@ -275,7 +275,7 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
           <h3 className="text-4xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
       </div>
       <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100 group">
-        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex items-center justify-center">
+        <div className="absolute inset-0 bg-accent/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex items-center justify-center">
           <span className="text-white text-xs uppercase tracking-[0.3em] font-medium">View Project</span>
         </div>
         <AnimatePresence initial={false} custom={direction}>
@@ -622,12 +622,12 @@ function LandingPage() {
         </motion.div>
         
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
-          <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
-          <a href="#work" className="hover:opacity-50 transition-opacity">Work</a>
-          <Link to="/explorations" className="hover:opacity-50 transition-opacity">Sketches</Link>
-          <Link to="/artwork" className="hover:opacity-50 transition-opacity">Artwork</Link>
-          <Link to="/resume" className="hover:opacity-50 transition-opacity">Resume</Link>
-          <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
+          <a href="#about" className="hover:text-accent transition-colors">About</a>
+          <a href="#work" className="hover:text-accent transition-colors">Work</a>
+          <Link to="/explorations" className="hover:text-accent transition-colors">Sketches</Link>
+          <Link to="/artwork" className="hover:text-accent transition-colors">Artwork</Link>
+          <Link to="/resume" className="hover:text-accent transition-colors">Resume</Link>
+          <a href="#contact" className="hover:text-accent transition-colors">Contact</a>
         </div>
 
         <button 
@@ -697,7 +697,7 @@ function LandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.8 }}
-            className="inline-flex items-center gap-3 border border-white/60 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-white/60 text-white text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-accent hover:border-accent hover:text-white transition-all duration-300"
           >
             View Project <ArrowRight size={14} />
           </motion.a>
@@ -822,7 +822,7 @@ function LandingPage() {
             <div className="flex flex-col md:flex-row justify-center gap-12 md:gap-24 items-center">
               <a href="mailto:kyifc03@gmail.com" className="group">
                 <div className="text-xs uppercase tracking-widest text-muted mb-2">Email</div>
-                <div className="text-xl md:text-2xl font-serif border-b border-transparent group-hover:border-ink transition-all">kyifc03@gmail.com</div>
+                <div className="text-xl md:text-2xl font-serif border-b border-transparent group-hover:border-accent transition-all">kyifc03@gmail.com</div>
               </a>
               <div className="group">
                 <div className="text-xs uppercase tracking-widest text-muted mb-2">Location</div>
@@ -832,10 +832,10 @@ function LandingPage() {
                 <div className="text-xs uppercase tracking-widest text-muted mb-2">Social</div>
                 <div className="flex gap-6 justify-center">
 <a href="https://www.linkedin.com/in/kyle-delgado-5614b5302" target="_blank" rel="noopener noreferrer">
-                    <Linkedin size={20} className="hover:opacity-50 cursor-pointer transition-opacity" />
+                    <Linkedin size={20} className="hover:text-accent cursor-pointer transition-colors" />
                   </a>
                   <a href="tel:+17035126829">
-                    <Phone size={20} className="hover:opacity-50 cursor-pointer transition-opacity" />
+                    <Phone size={20} className="hover:text-accent cursor-pointer transition-colors" />
                   </a>
                 </div>
               </div>
@@ -848,9 +848,9 @@ function LandingPage() {
       <footer className="py-12 px-6 md:px-24 border-t border-border flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] text-muted">
         <div>© 2026 kydeldesign</div>
         <div className="flex gap-12">
-          <Link to="/resume" className="hover:text-ink transition-colors">Resume</Link>
-          <a href="#" className="hover:text-ink transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-ink transition-colors">Terms of Service</a>
+          <Link to="/resume" className="hover:text-accent transition-colors">Resume</Link>
+          <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
         </div>
         <div>Built with Precision</div>
       </footer>
