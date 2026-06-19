@@ -636,7 +636,14 @@ function LandingPage() {
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-serif tracking-widest uppercase -ml-8"
         >
-          <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-52 w-auto" /></Link>
+          <Link to="/">
+            <img
+              src="/images/logo.png"
+              alt="kydeldesign"
+              className="h-52 w-auto transition-all duration-300"
+              style={navOnDark ? { filter: "drop-shadow(0 0 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(255,255,255,0.6))" } : undefined}
+            />
+          </Link>
         </motion.div>
 
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={navOnDark && !scrolled ? { textShadow: "0 1px 8px rgba(0,0,0,0.8)" } : undefined}>
