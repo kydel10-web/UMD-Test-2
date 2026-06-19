@@ -628,7 +628,7 @@ function LandingPage() {
           <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-52 w-auto" /></Link>
         </motion.div>
 
-        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={!scrolled ? { textShadow: "0 1px 8px rgba(0,0,0,0.8)" } : undefined}>
+        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
           <a href="#about" className="hover:text-accent transition-colors">About</a>
           <a href="#work" className="hover:text-accent transition-colors">Work</a>
           <Link to="/explorations" className="hover:text-accent transition-colors">Sketches</Link>
