@@ -41,7 +41,7 @@ const PROJECTS = [
       "/images/planter-final-model.png"
     ],
     imageTypes: ["TBD", "TBD", "Water Diagram", "Physical Model"],
-    description: "The Capillary Wall Planter is inspired by John Hedjuk's Wall House II and displays three stacked masses that act as performers bringing different energies to the stage. The elevation is composed of four parts: The wall, the bottom mass, middle mass, and top mass that are joined vertically by columns. The vertical columns that joined the 3 masses in the Planter behave as pipes that channel water coming into the system to then be collected into a reservoir to form a closed loop irrigation system.",
+    description: "The Capillary Wall Planter is inspired by John Hedjuk's Wall House II and displays three stacked masses that act as performers bringing different energies to the stage. The wall behaves as a threshold where 3 masses are mirrored to represent the echos over the stage. The vertical columns that joined the 3 masses in the Planter behave as pipes that channel water coming into the system to then be collected into a reservoir to form a closed loop irrigation system.",
     specs: [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Planter" },
