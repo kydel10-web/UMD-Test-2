@@ -619,7 +619,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen selection:bg-ink selection:text-bg">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center transition-colors duration-300 ${scrolled ? "bg-white/80 backdrop-blur-sm text-ink" : "text-white"}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center transition-colors duration-300 ${scrolled ? "text-ink" : "text-white"}`}>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
