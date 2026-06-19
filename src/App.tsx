@@ -638,10 +638,9 @@ function LandingPage() {
         >
           <Link to="/">
             <img
-              src="/images/logo.png"
+              src={navOnDark ? "/images/logo-light.png" : "/images/logo.png"}
               alt="kydeldesign"
-              className="h-52 w-auto transition-all duration-300"
-              style={navOnDark ? { filter: "drop-shadow(0 0 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(255,255,255,0.6))" } : undefined}
+              className="h-52 w-auto"
             />
           </Link>
         </motion.div>
