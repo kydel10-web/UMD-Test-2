@@ -612,7 +612,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen selection:bg-ink selection:text-bg">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-ink bg-white/80 backdrop-blur-sm">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-white">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -621,7 +621,7 @@ function LandingPage() {
           <Link to="/"><img src="/images/logo.png" alt="kydeldesign" className="h-40 w-auto" /></Link>
         </motion.div>
 
-        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]">
+        <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.2em]" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
           <a href="#about" className="hover:text-accent transition-colors">About</a>
           <a href="#work" className="hover:text-accent transition-colors">Work</a>
           <Link to="/explorations" className="hover:text-accent transition-colors">Sketches</Link>
