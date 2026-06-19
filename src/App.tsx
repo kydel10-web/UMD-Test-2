@@ -275,7 +275,7 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
           <h3 className="text-4xl font-serif mb-2 group-hover:italic transition-all">{project.title}</h3>
       </div>
       <div className="overflow-hidden mb-8 aspect-[16/9] relative bg-neutral-100 group">
-        <div className="absolute inset-0 bg-accent/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex items-center justify-center">
           <span className="text-white text-xs uppercase tracking-[0.3em] font-medium">View Project</span>
         </div>
         <AnimatePresence initial={false} custom={direction}>
@@ -612,7 +612,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen selection:bg-ink selection:text-bg">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-white bg-navy">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-8 flex justify-between items-center text-white">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -770,7 +770,7 @@ function LandingPage() {
       </section>
 
       {/* Services / Approach */}
-      <section className="py-32 px-6 md:px-24 bg-ink text-bg overflow-hidden relative">
+      <section className="py-32 px-6 md:px-24 bg-navy text-bg overflow-hidden relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <h2 className="text-4xl font-serif mb-12 sticky top-32">My <br /> Expertise</h2>
