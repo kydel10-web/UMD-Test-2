@@ -426,7 +426,7 @@ function Resume() {
             <section>
               <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Skills</h2>
               <div className="flex flex-wrap gap-2">
-                {["Sketchup", "AutoCAD", "BIM", "Rhino 3D", "Revit", "Project Management", "Sefaira", "Climate Consultant", "Procore", "Primavera P6"].map(skill => (
+                {["Sketchup", "AutoCAD", "BIM", "Rhino 3D", "Revit", "Blender", "Twinmotion", "Lumion", "Adobe Creative Suite", "Project Management", "Sefaira", "Climate Consultant", "Procore", "Primavera P6"].map(skill => (
                   <span key={skill} className="text-[10px] uppercase tracking-widest border border-border px-3 py-1 rounded-full">
                     {skill}
                   </span>
