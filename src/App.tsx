@@ -359,7 +359,7 @@ function Resume() {
         <div className="print:block">
           <header className="border-b border-border pb-12 mb-12">
             <h1 className="text-5xl md:text-7xl font-serif italic mb-4">Kyle Delgado</h1>
-            <p className="text-xs uppercase tracking-[0.4em] text-muted">Recent Architecture Graduate</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-muted">Associate AIA</p>
             <div className="mt-8 flex flex-wrap gap-x-12 gap-y-4 text-sm text-muted">
               <span>Manassas, VA</span>
               <span>kyifc03@gmail.com</span>
