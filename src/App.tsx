@@ -769,7 +769,7 @@ function LandingPage() {
             >
               <div className="space-y-6 text-muted leading-relaxed text-lg">
                 <p>
-                  I am an emerging architect who designs with purpose and structure. My work explores how geometry, material, and light can shape meaningful experiences. I believe architecture should be intentional, where every line, proportion, and decision is grounded in logic and clarity.
+                  I am an emerging architect who designs with purpose and structure. My work explores how geometry, material, and light can shape meaningful experiences.
                 </p>
                 <p>
                   I value intentional, innovative, and high-performance design. My approach blends conceptual exploration with digital fabrication to translate ideas into building systems that are both expressive and pragmatic. I intend on becoming a Licensed Architect in Washington D.C., Maryland, and Virginia and obtain my LEED Green Associate and LEED BD+C certifications to design buildings that are efficient and environmentally impactful.
