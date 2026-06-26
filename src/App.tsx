@@ -509,8 +509,8 @@ function SketchGallery() {
 function Artwork() {
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
   const artworks = [
-    { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel", medium: "Charcoal, 2024" },
-    { src: "/images/sketch-head-bust.png", title: "Weight of Things", medium: "Charcoal, 2024" }
+    { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel", medium: "Charcoal, 2023" },
+    { src: "/images/sketch-head-bust.png", title: "Weight of Things", medium: "Charcoal, 2023" }
   ];
 
   useEffect(() => {
