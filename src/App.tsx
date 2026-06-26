@@ -509,8 +509,8 @@ function SketchGallery() {
 function Artwork() {
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
   const artworks = [
-    { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel", medium: "Charcoal, 2023" },
-    { src: "/images/sketch-head-bust.png", title: "Weight of Things", medium: "Charcoal, 2023" }
+    { src: "/images/sketch-microscope.png", title: "Sight Seeing Sentinel" },
+    { src: "/images/sketch-head-bust.png", title: "Weight of Things" }
   ];
 
   useEffect(() => {
@@ -532,12 +532,11 @@ function Artwork() {
           <h1 className="text-5xl md:text-7xl font-serif italic">Artwork</h1>
         </div>
         <div className="flex flex-col gap-12 max-w-2xl mx-auto">
-          {artworks.map(({ src, title, medium }) => (
+          {artworks.map(({ src, title }) => (
             <div key={src} className="group cursor-zoom-in bg-neutral-100 rounded-lg overflow-hidden" onClick={() => setSelected({ src, title })}>
               <img src={src} alt={title} className="w-full h-auto object-contain transition-transform duration-700 ease-in-out group-hover:scale-110" />
-              <div className="mt-3 px-1 pb-3 flex justify-between items-baseline">
+              <div className="mt-3 px-1 pb-3">
                 <h3 className="text-base font-serif">{title}</h3>
-                <p className="text-base font-serif text-muted">{medium}</p>
               </div>
             </div>
           ))}
