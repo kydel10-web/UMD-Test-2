@@ -535,8 +535,9 @@ function Artwork() {
           {artworks.map(({ src, title, medium }) => (
             <div key={src} className="group cursor-zoom-in bg-neutral-100 rounded-lg overflow-hidden" onClick={() => setSelected({ src, title })}>
               <img src={src} alt={title} className="w-full h-auto object-contain transition-transform duration-700 ease-in-out group-hover:scale-110" />
-              <div className="mt-3 px-1 pb-3">
-                <h3 className="text-base font-serif">{title} — <span className="text-muted">{medium}</span></h3>
+              <div className="mt-3 px-1 pb-3 flex justify-between items-baseline">
+                <h3 className="text-base font-serif">{title}</h3>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted">{medium}</p>
               </div>
             </div>
           ))}
