@@ -371,7 +371,7 @@ function Resume() {
           <section className="mb-16">
             <h2 className="text-xs uppercase tracking-[0.3em] font-semibold mb-8 border-b border-border pb-2">Profile</h2>
             <p className="text-muted leading-relaxed text-lg">
-              Recent graduate from the University of Maryland with a Minor in Construction Project Management. Experienced in managing project documentation and adept in utilizing design software. An effective team collaborator with strong analytical skills demonstrated through both volunteer and professional roles.
+              Recent graduate from the University of Maryland with a Bachelors in Architecture and Minor in Construction Project Management. Experienced in managing project documentation and adept in utilizing design software. An effective team collaborator with strong analytical skills demonstrated through both volunteer and professional roles.
             </p>
           </section>
 
