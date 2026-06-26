@@ -768,7 +768,7 @@ function LandingPage() {
               className="lg:col-span-7 lg:pl-12"
             >
               <div className="space-y-6 text-muted leading-relaxed text-lg">
-                <p>
+                <p className="italic">
                   "Spaces are designed for how they look and what they do, but remembered for how they make us feel."
                 </p>
                 <p>
