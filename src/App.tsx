@@ -757,7 +757,7 @@ function LandingPage() {
               </div>
               <div className="mt-8">
                 <h3 className="text-4xl font-serif italic">Kyle Delgado</h3>
-                <p className="text-xs uppercase tracking-[0.3em] text-muted mt-2">Associate AIA</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-muted mt-2">Assoc. AIA</p>
               </div>
             </motion.div>
 
