@@ -100,10 +100,16 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   const [zoom, setZoom] = useState(1);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    setZoom(prev => Math.min(Math.max(prev - e.deltaY * 0.001, 1), 3));
-  };
+  useEffect(() => {
+    const el = imageContainerRef.current;
+    if (!el) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      setZoom(prev => Math.min(Math.max(prev - e.deltaY * 0.001, 1), 3));
+    };
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!imageContainerRef.current) return;
@@ -165,7 +171,6 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           className={`relative aspect-[16/9] overflow-hidden ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
           onMouseMove={isSpinora && isFirstImage ? handleMouseMove : undefined}
           onMouseLeave={isSpinora && isFirstImage ? handleMouseLeave : undefined}
-          onWheel={handleWheel}
         >
           {zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
           <AnimatePresence initial={false} custom={direction}>
