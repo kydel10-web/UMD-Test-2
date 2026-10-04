@@ -81,7 +81,7 @@ const PROJECTS = [
       "/images/mondrian-technical.png"
     ],
     imageTypes: ["Painting", "Exploded Axonometric", "Physical Model", "Plans"],
-    description: "Piet Mondrian was a Dutch artist who composed abstract art using geometry, such as lines, squares, and rectangles. The painting uses color to represent solids and white spaces to represent space. The black spaces symbolize neutral areas used to provide a visual pause for the viewer's eye from the solids. The Mondrian Object explores what exists beyond the painting through a tectonic system of core, shelves, and interlocking.",
+    description: "Piet Mondrian was a Dutch artist who contributed to geometric abstraction using lines and colored quadrilaterals during the De Stijl movement. The Coil Corrector explores what exists beyond a 2D gut grid through a tectonic system of core, shelves, and interlocking. The Coil Corrector uses colored spaces to represent the internal organs within the human body. The asymmetrical balance weighted heavily on the left side highlights an intestinal malrotation of the organs.",
     specs: [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Painting" },
