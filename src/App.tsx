@@ -108,12 +108,13 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     const el = imageContainerRef.current;
     if (!el) return;
     const handleWheel = (e: WheelEvent) => {
+      if (!isFloorPlan) return;
       e.preventDefault();
       setZoom(prev => Math.min(Math.max(prev - e.deltaY * 0.001, 1), 3));
     };
     el.addEventListener("wheel", handleWheel, { passive: false });
     return () => el.removeEventListener("wheel", handleWheel);
-  }, []);
+  }, [isFloorPlan]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!imageContainerRef.current) return;
@@ -127,6 +128,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
   const isSpinora = project.title === "Spinora Lamp Design";
   const isFirstImage = currentImageIndex === 0;
+  const isFloorPlan = project.title === "Jackson Family Retreat Home" && currentImageIndex === 3;
 
   const variants = {
     enter: (direction: number) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
@@ -175,14 +177,14 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           className={`relative aspect-[16/9] overflow-hidden ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
           onMouseMove={(e) => {
             if (isSpinora && isFirstImage) handleMouseMove(e);
-            if (isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
+            if (isFloorPlan && isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
           }}
-          onMouseDown={(e) => { if (zoom > 1) { setIsDragging(true); dragStartX.current = e.clientX; panStartX.current = panX; } }}
+          onMouseDown={(e) => { if (isFloorPlan && zoom > 1) { setIsDragging(true); dragStartX.current = e.clientX; panStartX.current = panX; } }}
           onMouseUp={() => setIsDragging(false)}
           onMouseLeave={(e) => { if (isSpinora && isFirstImage) handleMouseLeave(); setIsDragging(false); }}
-          style={{ cursor: zoom > 1 ? (isDragging ? "grabbing" : "grab") : "default" }}
+          style={{ cursor: isFloorPlan && zoom > 1 ? (isDragging ? "grabbing" : "grab") : "default" }}
         >
-          {zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
+          {isFloorPlan && zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentImageIndex}
@@ -198,7 +200,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 src={project.images[currentImageIndex]}
                 alt={project.title}
                 className="w-full h-full object-contain transition-transform duration-100 ease-out"
-                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(${zoom > 1 ? zoom : 1.02}) translateX(${panX / zoom}px)`, transition: isDragging ? "none" : "transform 0.1s ease-out" } : { transform: `scale(${zoom}) translateX(${panX / zoom}px)`, transformOrigin: "center center", transition: isDragging ? "none" : "transform 0.15s ease-out" }}
+                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(1.02)`, transition: "transform 0.1s ease-out" } : isFloorPlan ? { transform: `scale(${zoom}) translateX(${panX / zoom}px)`, transformOrigin: "center center", transition: isDragging ? "none" : "transform 0.15s ease-out" } : {}}
               />
             </motion.div>
           </AnimatePresence>
