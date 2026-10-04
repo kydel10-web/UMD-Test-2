@@ -752,7 +752,7 @@ function LandingPage() {
                 <img
                   src="/images/profile.png"
                   alt="Lead Architect"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
               <div className="mt-8">
