@@ -750,7 +750,7 @@ function LandingPage() {
             >
               <div className="relative overflow-hidden w-full mx-auto lg:mx-0">
                 <img
-                  src="/images/profile.jpg"
+                  src="/images/profile.png"
                   alt="Lead Architect"
                   className="w-full h-auto object-contain"
                 />
