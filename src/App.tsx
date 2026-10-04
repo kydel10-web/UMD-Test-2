@@ -71,7 +71,7 @@ const PROJECTS = [
   },
   {
     id: 4,
-    title: "Mondrian Object",
+    title: "Coil Corrector",
     category: "Object Design",
     year: "Spring 2024",
     images: [
