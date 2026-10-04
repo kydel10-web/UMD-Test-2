@@ -61,7 +61,7 @@ const PROJECTS = [
       "/images/spinora-grasshopper.png"
     ],
     imageTypes: ["Physical Model", "Front Elevation", "Axonometric", "Grasshopper Definition"],
-    description: "The Spinora Lamp is a Bachatera that draws energy from its core to radiate light outward to the pulsing rhythmic beat of Bachata. The bachata beat is a 4/4 rhythmic beat that is heavily accented on the fourth beat. The 3-lobed figure maintains stability while in motion and contains muscle lines representing full body engagement throughout the dance. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives.",
+    description: "The Spinora Lamp is a Bachatera that draws energy from its core to radiate light outward to the pulsing rhythmic beat of Bachata. The 3-lobed figure maintains stability while in motion and contains muscle lines representing full body engagement throughout the dance. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives.",
     specs: [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Lamp" },
