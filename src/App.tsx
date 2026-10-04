@@ -104,6 +104,10 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   const panStartX = useRef(0);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
+  const isSpinora = project.title === "Spinora Lamp Design";
+  const isFirstImage = currentImageIndex === 0;
+  const isFloorPlan = project.title === "Jackson Family Retreat Home" && currentImageIndex === 3;
+
   useEffect(() => {
     const el = imageContainerRef.current;
     if (!el) return;
@@ -125,10 +129,6 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   };
 
   const handleMouseLeave = () => setMousePos({ x: 0, y: 0 });
-
-  const isSpinora = project.title === "Spinora Lamp Design";
-  const isFirstImage = currentImageIndex === 0;
-  const isFloorPlan = project.title === "Jackson Family Retreat Home" && currentImageIndex === 3;
 
   const variants = {
     enter: (direction: number) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
