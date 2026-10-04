@@ -97,7 +97,13 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
   const imageContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    setZoom(prev => Math.min(Math.max(prev - e.deltaY * 0.001, 1), 3));
+  };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!imageContainerRef.current) return;
@@ -118,8 +124,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 300 : -300, opacity: 0 })
   };
 
-  const nextImage = () => { setDirection(1); setCurrentImageIndex((prev) => (prev + 1) % project.images.length); };
-  const prevImage = () => { setDirection(-1); setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length); };
+  const nextImage = () => { setDirection(1); setZoom(1); setCurrentImageIndex((prev) => (prev + 1) % project.images.length); };
+  const prevImage = () => { setDirection(-1); setZoom(1); setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length); };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -159,7 +165,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           className={`relative aspect-[16/9] overflow-hidden ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
           onMouseMove={isSpinora && isFirstImage ? handleMouseMove : undefined}
           onMouseLeave={isSpinora && isFirstImage ? handleMouseLeave : undefined}
+          onWheel={handleWheel}
         >
+          {zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentImageIndex}
@@ -175,7 +183,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 src={project.images[currentImageIndex]}
                 alt={project.title}
                 className="w-full h-full object-contain transition-transform duration-100 ease-out"
-                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(1.02)`, transition: "transform 0.1s ease-out" } : {}}
+                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(${zoom > 1 ? zoom : 1.02})`, transition: "transform 0.1s ease-out" } : { transform: `scale(${zoom})`, transformOrigin: "center center", transition: "transform 0.15s ease-out" }}
               />
             </motion.div>
           </AnimatePresence>
