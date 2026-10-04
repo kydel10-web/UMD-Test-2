@@ -714,7 +714,7 @@ function LandingPage() {
           className="absolute inset-0"
         >
           <img
-            src="/images/hero-sketch.png"
+            src="/images/hero.jpg"
             alt="Architecture Sketch"
             className="w-full h-full object-cover"
             style={{ objectPosition: "center 60%" }}
