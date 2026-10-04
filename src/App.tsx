@@ -41,7 +41,7 @@ const PROJECTS = [
       "/images/planter-final-model.png"
     ],
     imageTypes: ["Elevation", "Axonometric", "Water Diagram", "Physical Model"],
-    description: "The Capillary Wall Planter displays 3 stacked masses that act as performers bringing different energies to the stage. The Capillary Wall Planter explores how stacked modules form a vertical community. The vertical pipes capture and reuses water across the condominium units.",
+    description: "The Capillary Wall Planter displays 3 stacked masses that act as performers bringing different energies to the stage. The wall behaves as a threshold where 3 masses are mirrored to illustrate the echoes over the stage. The Capillary Wall Planter explores how stacked modules form a vertical community. The vertical pipes capture and reuses water across the condominium units.",
     specs: [
       { label: "Location", value: "College Park, MD" },
       { label: "Type", value: "Planter" },
