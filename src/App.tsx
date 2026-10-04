@@ -98,6 +98,10 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   const [direction, setDirection] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
+  const [panX, setPanX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef(0);
+  const panStartX = useRef(0);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -130,8 +134,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 300 : -300, opacity: 0 })
   };
 
-  const nextImage = () => { setDirection(1); setZoom(1); setCurrentImageIndex((prev) => (prev + 1) % project.images.length); };
-  const prevImage = () => { setDirection(-1); setZoom(1); setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length); };
+  const nextImage = () => { setDirection(1); setZoom(1); setPanX(0); setCurrentImageIndex((prev) => (prev + 1) % project.images.length); };
+  const prevImage = () => { setDirection(-1); setZoom(1); setPanX(0); setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length); };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -169,8 +173,14 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         <div
           ref={imageContainerRef}
           className={`relative aspect-[16/9] overflow-hidden ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
-          onMouseMove={isSpinora && isFirstImage ? handleMouseMove : undefined}
-          onMouseLeave={isSpinora && isFirstImage ? handleMouseLeave : undefined}
+          onMouseMove={(e) => {
+            if (isSpinora && isFirstImage) handleMouseMove(e);
+            if (isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
+          }}
+          onMouseDown={(e) => { if (zoom > 1) { setIsDragging(true); dragStartX.current = e.clientX; panStartX.current = panX; } }}
+          onMouseUp={() => setIsDragging(false)}
+          onMouseLeave={(e) => { if (isSpinora && isFirstImage) handleMouseLeave(); setIsDragging(false); }}
+          style={{ cursor: zoom > 1 ? (isDragging ? "grabbing" : "grab") : "default" }}
         >
           {zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
           <AnimatePresence initial={false} custom={direction}>
@@ -188,7 +198,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 src={project.images[currentImageIndex]}
                 alt={project.title}
                 className="w-full h-full object-contain transition-transform duration-100 ease-out"
-                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(${zoom > 1 ? zoom : 1.02})`, transition: "transform 0.1s ease-out" } : { transform: `scale(${zoom})`, transformOrigin: "center center", transition: "transform 0.15s ease-out" }}
+                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(${zoom > 1 ? zoom : 1.02}) translateX(${panX / zoom}px)`, transition: isDragging ? "none" : "transform 0.1s ease-out" } : { transform: `scale(${zoom}) translateX(${panX / zoom}px)`, transformOrigin: "center center", transition: isDragging ? "none" : "transform 0.15s ease-out" }}
               />
             </motion.div>
           </AnimatePresence>
