@@ -171,52 +171,10 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        {isSpinora && currentImageIndex === 3 ? (
-          /* Side-by-side layout for Spinora exploded axon */
-          <div className="flex flex-col md:flex-row">
-            <div ref={imageContainerRef} className="relative md:w-1/2 bg-white overflow-hidden">
-              <AnimatePresence initial={false} custom={direction}>
-                <motion.div key={currentImageIndex} custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}>
-                  <img src={project.images[currentImageIndex]} alt={project.title} className="w-full h-auto object-contain" />
-                </motion.div>
-              </AnimatePresence>
-              <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
-                <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"><ChevronLeft size={20} /></button>
-                <button onClick={nextImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"><ChevronRight size={20} /></button>
-              </div>
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                {project.images.map((_, i) => (
-                  <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-white w-4" : "bg-white/40 w-1.5"}`} />
-                ))}
-              </div>
-            </div>
-            <div className="md:w-1/2 p-8 grid grid-cols-1 gap-8">
-              <div>
-                <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Description</h3>
-                <p className="text-muted leading-relaxed">{project.description}</p>
-              </div>
-              <div>
-                <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Specifications</h3>
-                <div className="space-y-4">
-                  {project.specs.map(({ label, value }) => {
-                    const displayValue = label === "Type" && project.imageTypes ? project.imageTypes[currentImageIndex] ?? value : value;
-                    return (
-                      <div key={label} className="border-b border-border pb-4">
-                        <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
-                        <p className="text-sm font-medium">{displayValue}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <>
-            {/* Image Carousel */}
-            <div
-              ref={imageContainerRef}
-              className={`relative aspect-[16/9] overflow-hidden ${isSpinora && currentImageIndex === 1 ? 'bg-white' : 'bg-neutral-100'}`}
+        {/* Image Carousel */}
+        <div
+          ref={imageContainerRef}
+          className={`relative overflow-hidden ${isSpinora && currentImageIndex === 3 ? 'aspect-[3/4]' : 'aspect-[16/9]'} ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
               onMouseMove={(e) => {
                 if (isSpinora && isFirstImage) handleMouseMove(e);
                 if (isFloorPlan && isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
@@ -265,8 +223,6 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 </div>
               </div>
             </div>
-          </>
-        )}
       </motion.div>
     </motion.div>
   );
