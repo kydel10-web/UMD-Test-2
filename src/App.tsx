@@ -174,7 +174,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         {/* Image Carousel */}
         <div
           ref={imageContainerRef}
-          className={`relative aspect-[16/9] overflow-hidden ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
+          className={`relative overflow-hidden ${isSpinora && currentImageIndex === 3 ? 'aspect-[3/4]' : 'aspect-[16/9]'} ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
           onMouseMove={(e) => {
             if (isSpinora && isFirstImage) handleMouseMove(e);
             if (isFloorPlan && isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
