@@ -471,7 +471,7 @@ function SketchGallery() {
         {SKETCHES.map(({ src, title }) => (
           <div
             key={src}
-            className="group cursor-zoom-in bg-neutral-100 rounded-lg overflow-hidden"
+            className="group cursor-zoom-in bg-white rounded-lg overflow-hidden"
             onClick={() => setSelected({ src, title })}
           >
             <img src={src} alt={title} className="w-full h-auto object-contain transition-transform duration-700 ease-in-out group-hover:scale-110" />
