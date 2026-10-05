@@ -171,77 +171,102 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        {/* Image Carousel */}
-        <div
-          ref={imageContainerRef}
-          className={`relative aspect-[16/9] overflow-hidden ${isSpinora && (currentImageIndex === 1 || currentImageIndex === 3) ? 'bg-white' : 'bg-neutral-100'}`}
-          onMouseMove={(e) => {
-            if (isSpinora && isFirstImage) handleMouseMove(e);
-            if (isFloorPlan && isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
-          }}
-          onMouseDown={(e) => { if (isFloorPlan && zoom > 1) { setIsDragging(true); dragStartX.current = e.clientX; panStartX.current = panX; } }}
-          onMouseUp={() => setIsDragging(false)}
-          onMouseLeave={(e) => { if (isSpinora && isFirstImage) handleMouseLeave(); setIsDragging(false); }}
-          style={{ cursor: isFloorPlan && zoom > 1 ? (isDragging ? "grabbing" : "grab") : "default" }}
-        >
-          {isFloorPlan && zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={currentImageIndex}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-              className="absolute inset-0"
-            >
-              <img
-                src={project.images[currentImageIndex]}
-                alt={project.title}
-                className="w-full h-full object-contain transition-transform duration-100 ease-out"
-                style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(1.02)`, transition: "transform 0.1s ease-out" } : isFloorPlan ? { transform: `scale(${zoom}) translateX(${panX / zoom}px)`, transformOrigin: "center center", transition: isDragging ? "none" : "transform 0.15s ease-out" } : {}}
-              />
-            </motion.div>
-          </AnimatePresence>
-          <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
-            <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
-              <ChevronLeft size={20} />
-            </button>
-            <button onClick={nextImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
-              <ChevronRight size={20} />
-            </button>
-          </div>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-            {project.images.map((_, i) => (
-              <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-white w-4" : "bg-white/40 w-1.5"}`} />
-            ))}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div className="md:col-span-2">
-            <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Description</h3>
-            <p className="text-muted leading-relaxed">{project.description}</p>
-          </div>
-          <div>
-            <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Specifications</h3>
-            <div className="space-y-4">
-              {project.specs.map(({ label, value }) => {
-                const displayValue = label === "Type" && project.imageTypes
-                  ? project.imageTypes[currentImageIndex] ?? value
-                  : value;
-                return (
-                  <div key={label} className="border-b border-border pb-4">
-                    <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
-                    <p className="text-sm font-medium">{displayValue}</p>
-                  </div>
-                );
-              })}
+        {isSpinora && currentImageIndex === 3 ? (
+          /* Side-by-side layout for Spinora exploded axon */
+          <div className="flex flex-col md:flex-row">
+            <div ref={imageContainerRef} className="relative md:w-1/2 bg-white overflow-hidden">
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div key={currentImageIndex} custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}>
+                  <img src={project.images[currentImageIndex]} alt={project.title} className="w-full h-auto object-contain" />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
+                <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"><ChevronLeft size={20} /></button>
+                <button onClick={nextImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"><ChevronRight size={20} /></button>
+              </div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {project.images.map((_, i) => (
+                  <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-white w-4" : "bg-white/40 w-1.5"}`} />
+                ))}
+              </div>
+            </div>
+            <div className="md:w-1/2 p-8 grid grid-cols-1 gap-8">
+              <div>
+                <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Description</h3>
+                <p className="text-muted leading-relaxed">{project.description}</p>
+              </div>
+              <div>
+                <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Specifications</h3>
+                <div className="space-y-4">
+                  {project.specs.map(({ label, value }) => {
+                    const displayValue = label === "Type" && project.imageTypes ? project.imageTypes[currentImageIndex] ?? value : value;
+                    return (
+                      <div key={label} className="border-b border-border pb-4">
+                        <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
+                        <p className="text-sm font-medium">{displayValue}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* Image Carousel */}
+            <div
+              ref={imageContainerRef}
+              className={`relative aspect-[16/9] overflow-hidden ${isSpinora && currentImageIndex === 1 ? 'bg-white' : 'bg-neutral-100'}`}
+              onMouseMove={(e) => {
+                if (isSpinora && isFirstImage) handleMouseMove(e);
+                if (isFloorPlan && isDragging && zoom > 1) setPanX(panStartX.current + (e.clientX - dragStartX.current));
+              }}
+              onMouseDown={(e) => { if (isFloorPlan && zoom > 1) { setIsDragging(true); dragStartX.current = e.clientX; panStartX.current = panX; } }}
+              onMouseUp={() => setIsDragging(false)}
+              onMouseLeave={(e) => { if (isSpinora && isFirstImage) handleMouseLeave(); setIsDragging(false); }}
+              style={{ cursor: isFloorPlan && zoom > 1 ? (isDragging ? "grabbing" : "grab") : "default" }}
+            >
+              {isFloorPlan && zoom === 1 && <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-widest text-white/60 bg-black/30 px-2 py-1 rounded-full pointer-events-none">Scroll to zoom</span>}
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div key={currentImageIndex} custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }} className="absolute inset-0">
+                  <img src={project.images[currentImageIndex]} alt={project.title} className="w-full h-full object-contain transition-transform duration-100 ease-out"
+                    style={isSpinora && isFirstImage ? { transform: `perspective(800px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg) scale(1.02)`, transition: "transform 0.1s ease-out" } : isFloorPlan ? { transform: `scale(${zoom}) translateX(${panX / zoom}px)`, transformOrigin: "center center", transition: isDragging ? "none" : "transform 0.15s ease-out" } : {}}
+                  />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
+                <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"><ChevronLeft size={20} /></button>
+                <button onClick={nextImage} className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"><ChevronRight size={20} /></button>
+              </div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {project.images.map((_, i) => (
+                  <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-white w-4" : "bg-white/40 w-1.5"}`} />
+                ))}
+              </div>
+            </div>
+            {/* Content */}
+            <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="md:col-span-2">
+                <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Description</h3>
+                <p className="text-muted leading-relaxed">{project.description}</p>
+              </div>
+              <div>
+                <h3 className="text-xs uppercase tracking-widest font-semibold mb-4">Specifications</h3>
+                <div className="space-y-4">
+                  {project.specs.map(({ label, value }) => {
+                    const displayValue = label === "Type" && project.imageTypes ? project.imageTypes[currentImageIndex] ?? value : value;
+                    return (
+                      <div key={label} className="border-b border-border pb-4">
+                        <p className="text-[10px] uppercase tracking-widest text-muted mb-1">{label}</p>
+                        <p className="text-sm font-medium">{displayValue}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </motion.div>
     </motion.div>
   );
