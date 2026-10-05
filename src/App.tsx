@@ -58,9 +58,9 @@ const PROJECTS = [
       "/images/spinora-lamp-model.png",
       "/images/spinora-view-2.png",
       "/images/spinora-view-5.png",
-      "/images/spinora-grasshopper.png"
+      "/images/spinora-exploded-axon.png"
     ],
-    imageTypes: ["Physical Model", "Front Elevation", "Axonometric", "Grasshopper Definition"],
+    imageTypes: ["Physical Model", "Front Elevation", "Axonometric", "Exploded Axonometric"],
     description: "The Spinora Lamp is a Bachatera that draws energy from its core to radiate light outward to the pulsing rhythmic beat of Bachata. The 3-lobed figure maintains stability while in motion and contains muscle lines representing full body engagement throughout the dance. The Spinora Lamp conceptualizes the contrast and harmony of light and shadow from various perspectives.",
     specs: [
       { label: "Location", value: "College Park, MD" },
